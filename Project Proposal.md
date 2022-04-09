@@ -18,7 +18,7 @@ Some examples of sites we have compared are:
 > A site for searching and trading baseball cards (as well as others. We plan to focus on different sets of cards then what is available on this website, but in the future we could expand to baseball cards as well. This site is also styled with an older style, and isn't as sleek as it could be. We aim to have a simplified, stylized layout that will allow users ease of access to our service.
 
 ### [TCG Player](https://www.tcgplayer.com/) 
-> Another site to collect and discover trading cards from Pokemon to Magic The Gathering. This site is much closer to what we are going for, but we would like to create a much sleeker and easier to use UI. The bulk of this sites UI is stored in drawer menus and we would like to avoid that, as it gives a cluttered user view and could be massively simplifed with a better search feature. There is no way to store a "deck" of cards so to speak, so we aim to change that with our product.
+> Another site to collect and discover trading cards from Pokemon to Magic The Gathering. This site is much closer to what we are going for, but we would like to create a much sleeker and easier to use UI. The bulk of this sites UI is stored in drawer menus and we would like to avoid that, as it gives a cluttered user view and could be massively simplified with a better search feature. There is no way to store a "deck" of cards so to speak, so we aim to change that with our product.
 
 
 ### [AetherHub](https://aetherhub.com/Collection/)
@@ -62,14 +62,14 @@ So far, unless there are schedule changes, all members will be available through
 
 There are going to be several APIs that we will need to learn and apply during this project. So far, we've identified at least 1 we need so far, [a pricing and card data API called pokemontcg.io](https://pokemontcg.io/)
 	
-This API offers easy access to JSON data about cards, and will allow us to deliver card information such as pricing and images to the user in a straightforaward manner.
+This API offers easy access to JSON data about cards, and will allow us to deliver card information such as pricing and images to the user in a straightforward manner.
 
 In order to protect user data, we will have to apply several concepts of web security, including sanitizing input strings and preventing SQL injections. We are going to be using the most up to date user Auth specifications, and plan to continuously test our security through pen testing methods. Our user accounts will also take very little to no user meta data, in order to give users control over what data they share to the public or not.
 
 In terms of concrete issues, two that come up are:
 	
 - How do we prevent user data exposure/deletion/alteration via sql attacks
-- How can we prevent fradulent access to accounts from occuring.
+- How can we prevent fraudulent access to accounts from occurring.
 
 For issue #1, the main way to deal with this would be to sanitize all strings before they are allowed to interact with the database. PostgreSQL has a built in way to sanitize strings as seen in [this github PR](https://github.com/dwyl/learn-postgresql/issues/64) and as such we will be able to design sanitization functions for our data.
 
