@@ -1,4 +1,4 @@
-# DeckBoss Card Trading Site
+# DeckBoss Card Collection
 ## Team Members
 Elliot Dubrow, Mackenzie Blaser, Brandon Cross, Matthew Wudi
 
@@ -7,28 +7,25 @@ Elliot Dubrow, Mackenzie Blaser, Brandon Cross, Matthew Wudi
 
 # Competition:
 
-There are several sites that have similar concepts as ours, but many focus on baseball or other trading cards. Other sites also usually have a section for buying and selling cards, while our plan is to just present a very nice interface for a digital collection. 
+There are several sites that have similar concepts as ours, but many focus on baseball or other trading cards. Other sites also usually have a section for buying and selling cards, while our plan is to just present a very nice interface for a digital collection with the possibility of expansion into the marketplace at a later point in development. 
 
-Some examples of sites that do this are:
+Some examples of sites we have compared are:
 
 https://www.collectors.com/Shop => Collectors.com, a site for searching and trading baseball cards (as well as others. We plan to focus on different sets of cards then what is available on this website, but in the future we could expand to baseball cards as well.
 
 https://www.tcgplayer.com/ => Another site to collect and discover trading cards from Pokemon to Magic The Gathering. This site is much closer to what we are going for, but we would like to create a much sleeker and easier to use UI. The bulk of this sites UI is stored in drawer menus and we would like to avoid that, as it gives a cluttered user view and could be massively simplifed with a better search feature. There is no way to store a "deck" of cards so to speak, so we aim to change that with our product.
 
 
-
-
-
-
 # Sample UI:
 
-## Home Page 
+## Home Page:
+<img src="websiteMockupImages/Home-Page.png" alt="homelayout">
 
-## Search Page
-<img src="proposalImages/Searchlayout.png" alt="searchlayout">
+## Search Page:
+<img src="websiteMockupImages/Search-Page.png" alt="searchlayout">
 
-## User Account Page
-<img src="">
+## User Account Page:
+<img src="websiteMockupImages/User-Page.png" alt="userlayout">
 
 
 # Scope:
