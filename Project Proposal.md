@@ -3,7 +3,10 @@
 Elliot Dubrow, Mackenzie Blaser, Brandon Cross, Matthew Wudi
 
 # The Need:
+> There are thousands of people out there who collect trading cards of different kinds, whether it's Magic: The Gathering, Pokemon or Yu-Gi-Oh! As you start getting into card collecting, it can become very tedious to efficiently keep track of your collection. And if you attempt to sell any cards in your collection, getting information on pricing can be difficult. 
 
+# The Solution:
+> In that vein, DeckBoss would look to help make the process of keeping track of your collection and building decks easier. DeckBoss is a web based card binder, allowing you to effortlessly add cards to your collection and organize them quickly. It will also allow users to quickly gather information pertaining to buying/selling cards.  
 
 # Competition:
 
