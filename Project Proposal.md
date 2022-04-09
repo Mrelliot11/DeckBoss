@@ -3,10 +3,10 @@
 Elliot Dubrow, Mackenzie Blaser, Brandon Cross, Matthew Wudi
 
 # The Need:
-> There are thousands of people out there who collect trading cards of different kinds, whether it's Magic: The Gathering, Pokemon or Yu-Gi-Oh! As you start getting into card collecting, it can become very tedious to efficiently keep track of your collection. And if you attempt to sell any cards in your collection, getting information on pricing can be difficult. 
+There are thousands of people out there who collect trading cards of different kinds, whether it's Magic: The Gathering, Pokemon or Yu-Gi-Oh! As you start getting into card collecting, it can become very tedious to efficiently keep track of your collection. And if you attempt to sell any cards in your collection, getting information on pricing can be difficult. 
 
 # The Solution:
-> In that vein, DeckBoss would look to help make the process of keeping track of your collection and building decks easier. DeckBoss is a web based card binder, allowing you to effortlessly add cards to your collection and organize them quickly. It will also allow users to quickly gather information pertaining to buying/selling cards.  
+In that vein, DeckBoss would look to help make the process of keeping track of your collection and building decks easier. DeckBoss is a web based card binder, allowing you to effortlessly add cards to your collection and organize them quickly. It will also allow users to quickly gather information pertaining to buying/selling cards.  
 
 # Competition:
 
@@ -15,10 +15,14 @@ There are several sites that have similar concepts as ours, but many focus on ba
 Some examples of sites we have compared are:
 
 ### [Collectors.com](https://www.collectors.com/Shop) 
-> A site for searching and trading baseball cards (as well as others. We plan to focus on different sets of cards then what is available on this website, but in the future we could expand to baseball cards as well.
+> A site for searching and trading baseball cards (as well as others. We plan to focus on different sets of cards then what is available on this website, but in the future we could expand to baseball cards as well. This site is also styled with an older style, and isn't as sleek as it could be. We aim to have a simplified, stylized layout that will allow users ease of access to our service.
 
 ### [TCG Player](https://www.tcgplayer.com/) 
 > Another site to collect and discover trading cards from Pokemon to Magic The Gathering. This site is much closer to what we are going for, but we would like to create a much sleeker and easier to use UI. The bulk of this sites UI is stored in drawer menus and we would like to avoid that, as it gives a cluttered user view and could be massively simplifed with a better search feature. There is no way to store a "deck" of cards so to speak, so we aim to change that with our product.
+
+
+### [AetherHub](https://aetherhub.com/Collection/)
+> This site is a Magic The Gathering specific site that is quite similar to our collection idea, but with a vastly different UI. This site allows you to build decks to play against other players with, but again it is quite simple in it's UI and and could use some styling. Our website will aim to increase the usability and improve the look of this concept.
 
 
 # Sample UI:
