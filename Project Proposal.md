@@ -1,6 +1,6 @@
 # **DeckBoss Card Collection**
 ## Team Members
-Elliot Dubrow, Mackenzie Blaser, Brandon Cross, Matthew Wudi
+Elliot Dubrow, Mackenzie Blaser, Matthew Wudi
 
 # The Need:
 There are thousands of people out there who collect trading cards of different kinds, whether it's Magic: The Gathering, Pokemon or Yu-Gi-Oh! As you start getting into card collecting, it can become very tedious to efficiently keep track of your collection. And if you attempt to sell any cards in your collection, getting information on pricing can be difficult. 
