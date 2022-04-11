@@ -51,6 +51,12 @@ Our minimum criteria for success:
 2. As a user, I want to be able to search for cards and get pricing data
 3. As a user, I want to be able to share my card collection with others.
 
+Additional stories we plan to implement based on timeframe are:
+
+1. Allow users to share cards with each other and post collections via social media.
+2. Create a mobile friendly version of the site
+3. Implement the ability to export collections as XML data
+
 
 # Pitfalls:
 
