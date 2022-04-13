@@ -41,7 +41,7 @@ Some examples of sites we have compared are:
 
 For the scope of our project, we are mainly focusing on having a working website for users to connect to, create accounts, and host their card collections.
 
-We have decided to host the website on heroku and use postgreSQL as the database. Our website will be written in HTML/CSS/Node.JS, there will be some use of jQuery and several APIs for pricing and card data. We took a look at using a framework like react to create interfaces, but as everyone in the group is more comfortable with basic web design, that is what we are going to use.
+We have decided to host the website on heroku and use postgreSQL as the database. Our website will be written in HTML/CSS/Node&Express.JS, there will be some use of jQuery and several APIs for pricing and card data. We took a look at using a framework like react to create interfaces, but as everyone in the group is more comfortable with basic web design, that is what we are going to use.
 	
 Our project is not a website to buy or sell cards, it is just a site to collect and price digital tokens of said cards and allow for users to present those collections to others in a nice layout. 
 	
@@ -64,7 +64,7 @@ There are many potential pitfalls in this project. Group scheduling, keeping to 
 
 To minimize these issues, we are going to try to stick to a schedule of work. We are going to be delegating out tasks to different members, to ensure that our work doesn't overlap and that merge conflicts can be avoided. We are also going to ensure that everyone's coding environment is set up properly, as to make sure there are no issues there. Since we are using a simple tech stack for web dev, it should be easier, so the main points to check will be git and heroku set ups.
 
-Node.JS is going to be slightly new to a couple members of the team but with our collective familiarity with javascript we will be able to troubleshoot fairly easily. Having already done the skeleton site using a Node.js app on heroku, our team has a fairly good start to get going with.
+Node.JS and Express.JS is going to be slightly new to a couple members of the team but with our collective familiarity with javascript we will be able to troubleshoot fairly easily. Having already done the skeleton site using a Node/Express app on heroku, our team has a fairly good start to get going with.
 
 So far, unless there are schedule changes, all members will be available throughout the term to work on this project.
 
