@@ -1,0 +1,21 @@
+<h1>Sign in</h1>
+<form action="/login" method="post">
+    <section>
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="username" required autofocus>
+    </section>
+    <section>
+        <label for="current-password">Password</label>
+        <input id="current-password" name="password" type="password" autocomplete="current-password" required>
+    </section>
+    <button type="submit">Sign in</button>
+
+    <p>
+        <%= error %>
+    </p>
+</form>
+
+<form action="/login/verify" method="post">
+    <input type="text" name="checkname" value="">
+    <button type="submit">Get user</button>
+</form>

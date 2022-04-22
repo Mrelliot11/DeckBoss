@@ -15,10 +15,11 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^1.0.7",
     "morgan": "~1.9.1",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "password-hash-and-salt": "^0.1.4",
     "pg": "^8.7.3",
-    "pg-hstore": "^2.3.4",
     "pokemontcgsdk": "^2.0.0",
     "sequelize": "^6.19.0"
   }
