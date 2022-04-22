@@ -38,8 +38,6 @@ async function insertUser(username, email, hash, salt, iterations) {
 
 }
 
-
-
 //function to get user from database if it exists
 function getUser(username) {
   const query = `SELECT * FROM users WHERE username = '${username}'`;
@@ -47,9 +45,7 @@ function getUser(username) {
   return client.query(query);
 }
 
-
-
-
+// Post request to create a new user
 router.post('/', function(req, res, next) {
   //get username, email, and password from form
   const username = req.body.username;
