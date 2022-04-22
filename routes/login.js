@@ -17,6 +17,7 @@ const client = new Client({
 client.connect();
 
 
+//function to insert users into database
 async function insertUser(username, hash, salt, iterations) {
   
   const query = `INSERT INTO users (username, hash, salt, iterations) VALUES ('${username}', '${hash}', '${salt}', ${iterations})`;
@@ -31,7 +32,7 @@ async function insertUser(username, hash, salt, iterations) {
 
 }
 
-
+//function to get user from database if it exists
 function getUser(username) {
   const query = `SELECT * FROM users WHERE username = '${username}'`;
 
@@ -39,8 +40,10 @@ function getUser(username) {
 }
 
 
-function verifyPassword(password, salt, hash, iterations) {
-  var hash = crypto.pbkdf2Sync(password, salt, iterations, 64, 'sha512').toString('hex');
+function verifyPassword(username, password) {
+
+  const query = `SELECT * FROM users WHERE username = '${username}'`;
+
   return hash;
 }
 
@@ -52,8 +55,10 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) { 
   const username = req.body.username;
   const password = req.body.password;
-  const salt = crypto.randomBytes(16).toString('hex');
+  //Creates 64 byte salt
+  const salt = crypto.randomBytes(64).toString('hex');
   const iterations = 10000;
+  //Hashes password with salt and iterations
   const hash = crypto.pbkdf2Sync(password, salt, iterations, 64, 'sha512').toString('hex');
 
   try {
@@ -69,7 +74,6 @@ router.post('/', function(req, res, next) {
 
 router.post('/verify', function(req, res, next) {
   const username = req.body.checkname;
-  console.log(username);
 
   try {
     const user = getUser(username);
