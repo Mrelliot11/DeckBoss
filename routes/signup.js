@@ -19,7 +19,7 @@ client.connect();
 
 // Render the login page
 router.get('/', function(req, res, next) {
-  res.render('signup');
+  res.render('signup', {error: ''});
 });
 
 
