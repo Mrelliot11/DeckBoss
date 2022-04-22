@@ -1,6 +1,58 @@
 body {
+  background-color: #020420;
+  background-image: url("../images/website_background_dark.png");
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  align-items: center;
+  text-align: center; 
+  color: white;
+}
+
+h2 {
+  text-align: center;
+}
+
+/*Navigation Bar*/
+
+.menu {
+  float: right;
+  font-weight: bold;
+  text-align: end;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 35px;
+  background-color: #1d296b;
+  height:40px;
+  
+}
+
+.menu li {
+  display: inline;
+  padding: 40px;
+  color: white;
+}
+
+form {
+  float: right;
+}
+
+
+/*Navigation Bar End */
+
+
+/* Carousel */
+.container {
+  margin-top: 20px;
+  background-color: rgb(2, 10, 56);
+  padding: 40px;
+  border-radius: 50px;
+}
+
+.carousel-inner img{
+  margin: auto;
 }
 
 .charmander-img {
@@ -8,6 +60,4 @@ body {
   height: 200px;
 }
 
-a {
-  color: #00B7FF;
-}
+/* End Carousel */
