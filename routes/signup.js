@@ -57,7 +57,9 @@ router.post('/', function(req, res, next) {
   const iterations = 10000;
   //Hashes password with salt and iterations
   const hash = crypto.pbkdf2Sync(password, salt, iterations, 64, 'sha512').toString('hex');
+
   try {
+    if (username != '' && password != '' && confirmPassword != '' && email != '') {
     //Check if username already exists
     const user = getUser(username);
     user.then(result => {
@@ -67,7 +69,7 @@ router.post('/', function(req, res, next) {
         //insert user into database
         insertUser(username, email, hash, salt, iterations);
         //redirect to login page
-        res.redirect('/login');
+        res.render('login', {error: 'Thank you for registering!'});
         } else { //if passwords don't match
           res.render('signup', {error: 'Passwords do not match'});
         }
@@ -77,7 +79,9 @@ router.post('/', function(req, res, next) {
       }
 
     })
-
+  } else {
+    res.render('signup', {error: 'Please fill out all fields'});
+  }
 
   } catch (error) {
     console.log(error);
