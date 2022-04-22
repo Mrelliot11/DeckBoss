@@ -1,6 +1,7 @@
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL,
+  email TEXT NOT NULL,
   hash TEXT NOT NULL,
   salt TEXT NOT NULL,
   iterations INTEGER NOT NULL,
