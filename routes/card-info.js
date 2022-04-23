@@ -6,6 +6,7 @@ var cardName = '';
 var imgUrl = '';
 var cardPrice = 0;
 
+//Finding card data from the API
 pokemon.card.find('base1-4')
 .then(card => {
   //console.log(card); // testing to see returned json object

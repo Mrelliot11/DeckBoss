@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
@@ -12,9 +13,20 @@
     <br>
     <br>
 
-    <form action="/login" method="get">
-      <input type="submit" value="Login"></input>
-    </form>
+
+    <!-- Navigation-->
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <a class="nav-link active" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">Signup</a>
+      </li>
+    </ul>
+    
 
 
     <div class="container">
