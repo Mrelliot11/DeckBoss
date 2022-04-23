@@ -1,6 +1,6 @@
 body {
-  background-color: #020420;
-  background-image: url("../images/website_background_dark.png");
+  background-color: #010311;
+  background-image: url("../images/website_background_darkBlu.png");
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -13,32 +13,25 @@ h1 {
 
 h2 {
   text-align: center;
+  color: white;
+  padding-bottom: 50px;
+}
+
+p {
+  text-align: center;
+  color: white;
 }
 
 /*Navigation Bar*/
 
-.menu {
-  float: right;
-  font-weight: bold;
-  text-align: end;
-  margin-bottom: 20px;
-  width: 100%;
-  padding: 35px;
-  background-color: #1d296b;
-  height:40px;
-  
+.nav-item {
+  background-color: rgb(2, 10, 56);
 }
 
-.menu li {
-  display: inline;
-  padding: 40px;
+.nav-link {
+  font-weight: bold;
   color: white;
 }
-
-form {
-  float: right;
-}
-
 
 /*Navigation Bar End */
 
@@ -47,7 +40,7 @@ form {
 .container {
   margin-top: 20px;
   background-color: rgb(2, 10, 56);
-  padding: 40px;
+  padding: 50px;
   border-radius: 50px;
 }
 
@@ -61,3 +54,33 @@ form {
 }
 
 /* End Carousel */
+
+/* Login Styles */
+
+.login-form {
+  position: relative;
+  top:50%;
+  left: 43%;
+  text-align: center;
+  width: 250px;
+  height: 175px;
+  padding: 20px;
+  background-color: rgb(2, 10, 56);
+}
+
+/* End Login Styles */
+
+/* Signup Styles */
+
+.signup-form {
+  position: relative;
+  top:50%;
+  left: 43%;
+  text-align: center;
+  width: 250px;
+  height: 250px;
+  padding: 20px;
+  background-color: rgb(2, 10, 56);
+}
+
+/* End Signup Styles */
