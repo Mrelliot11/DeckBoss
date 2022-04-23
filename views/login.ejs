@@ -12,14 +12,16 @@
 </head>
 <body>
     <h1>Login to Deckboss</h1>
-    <form action="/login" method="post">
-        <input type="text" name="username" placeholder="Username"><br><br>
-        <input type="password" name="password" placeholder="Password"><br><br>
-        <button type="submit" value="Login">Login</button>
-    </form>
-    <p>
-        <%= error %>
-    </p>
 
+    <div class="login-form">
+        <form action="/login" method="post">
+            <input type="text" name="username" placeholder="Username"><br><br>
+            <input type="password" name="password" placeholder="Password"><br><br>
+            <button type="submit" value="Login">Login</button>
+        </form>
+        <p>
+            <%= error %>
+        </p>
+    </div>
 </body>
 </html>
