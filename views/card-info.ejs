@@ -6,24 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="/public/stylesheets/style.css">
-  <title>Card Info</title>
+  
+  <title><%= card %> | <%= set %> | DeckBoss</title>
 
 </head>
 <body>
   <h1><%= title %></h1>
   <p>Welcome to <%= title %> <%= name %></p>
   <br>
-  <form>
-    <label for="pricing">Select a pricing option: </label>
-    <select name="pricing" id="pricing" onchange="choosePrice()">
-      <option value="averageSellPrice">Average Selling Price</option>
-      <option value="lowPrice">Low Selling Price</option>
-      <option value="trendPrice">Trending Selling Price</option>
-    </select>
-  </form>
   <div id="card">
     <img src=<%= cardImg %> alt=<%= card %>>
-    <h2><%= prices %></h2>
+    <div>
+      <p>Trending Sale Price</p>
+      <p>$<%= prices.trendPrice %></p>
+    </div>
+    <div>
+      <p>1 Day Average</p>
+      <p>$<%= prices.avg1 %></p>
+    </div>
+    <div>
+      <p>7 Day Average</p>
+      <p>$<%= prices.avg7 %></p>
+    </div>
+    <div>
+      <p>30 Day Average</p>
+      <p>$<%= prices.avg30 %></p>
+    </div>
   </div>
 </body>
 </html>
