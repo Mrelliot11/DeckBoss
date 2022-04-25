@@ -39,10 +39,10 @@ async function insertUser(username, email, hash, salt, iterations) {
 }
 
 //function to get user from database if it exists
-function getUser(username) {
+async function getUser(username) {
   const query = `SELECT * FROM users WHERE username = '${username}'`;
 
-  return client.query(query);
+  return await client.query(query);
 }
 
 // Post request to create a new user

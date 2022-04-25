@@ -4,7 +4,7 @@ require('dotenv').config();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: "DeckBoss", name: 'Player'});
+  res.render('index', { title: "DeckBoss", name: req.query.username });
 });
 
 

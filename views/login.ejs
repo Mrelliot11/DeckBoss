@@ -12,16 +12,20 @@
 </head>
 <body>
     <h1>Login to Deckboss</h1>
+    <form action="/login" method="post">
+        <section>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" autocomplete="username" required autofocus>
+        </section>
+        <section>
+            <label for="current-password">Password</label>
+            <input id="current-password" name="password" type="password" autocomplete="current-password" required>
+        </section>
+        <button type="submit">Sign in</button>
+    </form>
+    <p>
+        <%= error %>
+    </p>
 
-    <div class="login-form">
-        <form action="/login" method="post">
-            <input type="text" name="username" placeholder="Username"><br><br>
-            <input type="password" name="password" placeholder="Password"><br><br>
-            <button type="submit" value="Login">Login</button>
-        </form>
-        <p>
-            <%= error %>
-        </p>
-    </div>
 </body>
 </html>

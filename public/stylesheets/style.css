@@ -22,6 +22,12 @@ p {
   color: white;
 }
 
+.logo {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  height: fit-content;
+}
 /*Navigation Bar*/
 
 .nav-item {
