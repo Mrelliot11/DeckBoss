@@ -7,9 +7,10 @@ var imgUrl = '';
 var cardPrices = {};
 var setName = {};
 
+//Finding card data from the API
 pokemon.card.find('base1-4')
 .then(card => {
-  console.log(card); // testing to see returned json object
+  //console.log(card); // testing to see returned json object
   cardName = card.name;
   setName = card.set.name;
   imgUrl = card.images.small;
