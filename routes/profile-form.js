@@ -10,17 +10,3 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
-//Image preview
-$("#defaultImage").onclick(function(e) {
-  $("#imageProfile").onclick();
-});
-  
- function preview(uploader) {
-   if(uploader.files && uploader.files[0]) {
-     $('#defaultImage').attr('src', window.URL.createObjectURL(uploader.files[0]));
-   }
- }
-  
-$('#imageProfile').onchange(function() {
-  preview(this);
-}); 
