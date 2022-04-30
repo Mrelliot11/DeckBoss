@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var sessions = require('express-session');
 
 var indexRouter = require('./routes/index');
 var cardInfoRouter = require('./routes/card-info');
@@ -26,6 +27,15 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
+app.use(sessions({
+  cookieName: 'session',
+  secret: process.env.SECRET,
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+  resave: false,
+  saveUninitialized: false
+  }));
+
 
 app.use('/', indexRouter);
 app.use('/card-info', cardInfoRouter);

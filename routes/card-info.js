@@ -20,7 +20,7 @@ pokemon.card.find('base1-4')
 
 router.get('/', function(req, res, next) {
   res.render('card-info', 
-  { title: 'DeckBoss', name: 'Elliot' , card: cardName, cardImg: imgUrl, prices: cardPrices, set: setName});
+  { title: 'DeckBoss', name: req.session.username , card: cardName, cardImg: imgUrl, prices: cardPrices, set: setName});
 });
 
 module.exports = router;
