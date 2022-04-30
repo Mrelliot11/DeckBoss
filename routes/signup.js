@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 require('dotenv').config();
 var crypto = require('crypto');
-const { Client } = require('pg');
+const {
+  Client
+} = require('pg');
 
 const connectionString = process.env.DATABASE_URL;
 
@@ -18,15 +20,17 @@ client.connect();
 
 
 // Render the login page
-router.get('/', function(req, res, next) {
-  res.render('signup', {error: ''});
+router.get('/', function (req, res, next) {
+  res.render('signup', {
+    error: ''
+  });
 });
 
 
 
 //function to insert users into database
 async function insertUser(username, email, hash, salt, iterations) {
-  
+
   const query = `INSERT INTO users (username, email, hash, salt, iterations) VALUES ('${username}', '${email}', '${hash}', '${salt}', ${iterations})`;
 
   try {
@@ -47,7 +51,7 @@ async function getUser(username) {
 }
 
 // Post request to create a new user
-router.post('/', function(req, res, next) {
+router.post('/', function (req, res, next) {
   //get username, email, and password from form
   const username = req.body.username;
   const password = req.body.password;
@@ -61,31 +65,37 @@ router.post('/', function(req, res, next) {
 
   try {
     if (username != '' && password != '' && confirmPassword != '' && email != '') {
-    //Check if username already exists
-    const user = getUser(username);
-    user.then(result => {
-      if (result.rows[0] == undefined) { //if username doesn't exist
-        if (password === confirmPassword) { //check if passwords match
-        
-        //insert user into database
-        insertUser(username, email, hash, salt, iterations);
-        //Set session variables
-        req.session.username = username;
-        req.session.email = email;
-        //Redirect to profile page
-        res.redirect('/profile-form');
-        } else { //if passwords don't match
-          res.render('signup', {error: 'Passwords do not match'});
-        }
-      } else { //if username already exists
-        console.log("Found user: ", result.rows[0]);
-        res.render('signup', {error: 'Username already exists'});
-      }
+      //Check if username already exists
+      const user = getUser(username);
+      user.then(result => {
+        if (result.rows[0] == undefined) { //if username doesn't exist
+          if (password === confirmPassword) { //check if passwords match
 
-    })
-  } else {
-    res.render('signup', {error: 'Please fill out all fields'});
-  }
+            //insert user into database
+            insertUser(username, email, hash, salt, iterations);
+            //Set session variables
+            req.session.username = username;
+            req.session.email = email;
+            //Redirect to profile page
+            res.redirect('/profile-form');
+          } else { //if passwords don't match
+            res.render('signup', {
+              error: 'Passwords do not match'
+            });
+          }
+        } else { //if username already exists
+          console.log("Found user: ", result.rows[0]);
+          res.render('signup', {
+            error: 'Username already exists'
+          });
+        }
+
+      })
+    } else {
+      res.render('signup', {
+        error: 'Please fill out all fields'
+      });
+    }
 
   } catch (error) {
     console.log(error);
