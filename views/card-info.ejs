@@ -13,25 +13,34 @@
 <body>
   <h1><%= title %></h1>
 
-  <ul class="nav nav-pills nav-justified">
-    <li class="nav-item">
-      <a class="nav-link active" href="/">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/login">Login</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/signup">Signup</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/card-info">Card Pricing Info</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/profile-form">Profile</a>
-    </li>
-  </ul>
+    <!-- Navigation with sessions-->
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <a class="nav-link active" href="/">Home</a>
+      </li>
+  
+      <% if (!name) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Signup</a>
+        </li>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      <% } %>
+      <li class="nav-item">
+        <a class="nav-link" href="/card-info">Card Pricing Info</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile-form">Profile</a>
+      </li>
+    </ul>
 
   <br>
+  <h1>Welcome to the card info page <%= name %> </h1>
   <div id="card">
     <img src=<%= cardImg %> alt=<%= card %>>
     <div>

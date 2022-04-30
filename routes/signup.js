@@ -23,6 +23,7 @@ router.get('/', function(req, res, next) {
 });
 
 
+
 //function to insert users into database
 async function insertUser(username, email, hash, salt, iterations) {
   
@@ -68,8 +69,11 @@ router.post('/', function(req, res, next) {
         
         //insert user into database
         insertUser(username, email, hash, salt, iterations);
-        //redirect to login page
-        res.render('login', {error: 'Thank you for registering!'});
+        //Set session variables
+        req.session.username = username;
+        req.session.email = email;
+        //Redirect to profile page
+        res.redirect('/profile-form');
         } else { //if passwords don't match
           res.render('signup', {error: 'Passwords do not match'});
         }

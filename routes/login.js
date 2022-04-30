@@ -21,6 +21,11 @@ async function getUser(username) {
 
   return await client.query(query);
 }
+router.get('/logout', function(req, res, next) {
+  req.session.destroy();
+  res.redirect('/');
+}
+);
 
 //Render the login page
 router.get('/', function(req, res, next) {
@@ -42,7 +47,9 @@ router.get('/', function(req, res, next) {
       var bufferhash1 = Buffer.from(hash, 'hex'); //Convert the first hash from hex to binary
       var bufferhash2 = Buffer.from(hash2, 'hex'); //Convert the second hash from hex to binary
       if (crypto.timingSafeEqual(bufferhash1, bufferhash2)) { //If the hashes match (using time safe comparison)
-        res.redirect('/?username=' + username); //Redirect to the index page with the username
+        req.session.username = username; //Set the session username
+        res.redirect('/'); //Redirect to the index page with the username
+
       } else { //If the hashes don't match
         res.render('login', {error: 'Incorrect username or password'}); //Render the login page with an error
       }

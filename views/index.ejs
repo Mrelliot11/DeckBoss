@@ -17,17 +17,24 @@
     <br>
     <br>
 
-    <!-- Navigation-->
+    <!-- Navigation with sessions-->
     <ul class="nav nav-pills nav-justified">
       <li class="nav-item">
         <a class="nav-link active" href="/">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/signup">Signup</a>
-      </li>
+  
+      <% if (!name) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Signup</a>
+        </li>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      <% } %>
       <li class="nav-item">
         <a class="nav-link" href="/card-info">Card Pricing Info</a>
       </li>
@@ -35,7 +42,6 @@
         <a class="nav-link" href="/profile-form">Profile</a>
       </li>
     </ul>
-
 
     <div class="container">
       <h2>Popular Cards</h2>  
