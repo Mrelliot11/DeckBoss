@@ -21,6 +21,12 @@ async function getUser(username) {
 
   return await client.query(query);
 }
+async function checkIfAdmin(username) {
+  const query = `SELECT * FROM adminUsers WHERE username = '${username}'`;
+
+  return await client.query(query);
+}
+
 router.get('/logout', function(req, res, next) {
   req.session.destroy();
   res.redirect('/');
@@ -36,27 +42,61 @@ router.get('/', function(req, res, next) {
     //get username, email, and password from form
   var username = req.body.username;
   var password = req.body.password;
+  
+  
+  //Check if the user is an admin
+  checkIfAdmin(username).then(function(result) {
+    if (result.rows.length > 0) {
+      const hash = result.rows[0].hash;
+      const salt = result.rows[0].salt;
+      const iterations = result.rows[0].iterations;
+      const hashPassword = crypto.pbkdf2Sync(password, salt, iterations, 64, 'sha512').toString('hex');
 
-  getUser(username).then(function(result) {
-    if (result.rows.length > 0) { //If the user exists
-      var user = result.rows[0]; //Get the user from the database
-      var hash = user.hash; //Get the hash from the database
-      var salt = user.salt; //Get the salt from the database
-      var iterations = user.iterations; //Get the iterations from the database
-      var hash2 = crypto.pbkdf2Sync(password, salt, iterations, 64, 'sha512').toString('hex'); //Hash the password with the salt and iterations
-      var bufferhash1 = Buffer.from(hash, 'hex'); //Convert the first hash from hex to binary
-      var bufferhash2 = Buffer.from(hash2, 'hex'); //Convert the second hash from hex to binary
-      if (crypto.timingSafeEqual(bufferhash1, bufferhash2)) { //If the hashes match (using time safe comparison)
-        req.session.username = username; //Set the session username
-        res.redirect('/'); //Redirect to the index page with the username
+      var bufferHash1 = Buffer.from(hashPassword, 'hex');
+      var bufferHash2 = Buffer.from(hash, 'hex');
 
-      } else { //If the hashes don't match
-        res.render('login', {error: 'Incorrect username or password'}); //Render the login page with an error
+      //Check if the password is correct
+      if (crypto.timingSafeEqual(bufferHash1, bufferHash2)) {
+        req.session.username = username;
+
+        res.redirect('/admin'); } //If the password is correct, redirect to the admin page
+      else {
+        res.render('login', {error: 'Incorrect username or password'});
       }
-    } else { //If the user doesn't exist
-      res.render('login', {error: 'Incorrect username or password'}); //Render the login page with an error
+
+      //If the user is an admin, redirect to the admin page
+    } else {
+      //If the user is not an admin, check if the user exists
+      getUser(username).then(function(result) {
+        if (result.rows.length > 0) {
+          //If the user exists, check if the password is correct
+          const hash = result.rows[0].hash;
+          const salt = result.rows[0].salt;
+          const iterations = result.rows[0].iterations;
+          const hashPassword = crypto.pbkdf2Sync(password, salt, iterations, 64, 'sha512').toString('hex');
+
+          var bufferHash1 = Buffer.from(hashPassword, 'hex');
+          var bufferHash2 = Buffer.from(hash, 'hex');
+
+
+          if (crypto.timingSafeEqual(bufferHash1, bufferHash2)) {
+            //If the password is correct, set the session variables
+            req.session.username = username;
+            req.session.email = result.rows[0].email;
+            res.redirect('/profile');
+          } else {
+            //If the password is incorrect, redirect to the login page with an error
+            res.render('login', {error: 'Incorrect Username or Password'});
+          }
+        } else {
+          //If the user doesn't exist, redirect to the login page with an error
+          res.render('login', {error: 'Incorrect Username or Password'});
+        }
+      }
+      );
     }
+  }
+  );
   });
-});
 
 module.exports = router;
