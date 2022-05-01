@@ -42,27 +42,20 @@
           </li>
   </ul>
 
-    <div id="imageDiv">
-      <img src="">
-    </div>
-    <label for ="pokemonSelector">Choose your profile image</label>
-      <select name="pokemonSelector" id="pokemonSelector">
-        <option value="blastoise">Blastoise</option>
-        <option value="charmander">Charmander</option>
-        <option value="pikachu">Pikachu</option>
-        <option value="squirtle">Squirtle</option>
-      </select>
   <h2>Welcome <%= name %> a confirmation email has been sent to <%= email %>
   </h2> <br>
   <h2>Create your profile</h2>
 
-  <div class="profile-picture">
-    <image id="defaultImage" src="../images/avatar_default.png"></image>
-    <select>
-        <option data-img_scr="../images/basic_pfps/charmander_pfp_200x200.png">Charmander</option>
-        <option>Bulbasaur</option>
-        <option>Squirtle</option>
-    </select>
+  <div class="selectedProfilePic">
+    <image name="profilePicSelector" id="profilePicSelector" src=""></image>
+    <div class="profile-picture">
+      <select onChange="changeImage(this.options[this.selectedIndex].value)">
+          <option value="charm_pfp.png">Charmander</option>
+          <option value="bulba_pfp.png">Bulbasaur</option>
+          <option value="squirtle_pfp.png">Squirtle</option>
+          <option value="pika_pfp.png">Pikachu</option>
+      </select>
+    </div>
   </div>
 
   <!-- Ideas for profile info:
@@ -74,6 +67,7 @@
     -A section to upload images such as fan art
     -Ability to change password
     -->
+    
   <div class="profile-form-div">
     <form>
       <label for="nickname">Nickname</label><br>
@@ -81,18 +75,45 @@
       <label for="contact">Contact</label><br>
       <input type="text" id="contact" name="contact"><br>
       <label for="aboutMe">About Me</label><br>
-      <textarea id="bioProfile" name="bioProfile"></textarea>
+      <textarea id="bioProfile" name="bioProfile"></textarea><br>
+      <label for="otherMedia">Other Social Media</label><br>
+      <textarea id="otherSocialMedia" name="otherSocialMedia"></textarea><br>
 
+      <!--Select favoite pokemon types-->
+      <label for="favPokemonTypes">Favorite Pokemon Types</label><br>
+      <div class="favPokemonRadio">
+        <input type="radio" id="normalTag"></input>
+        <label for="normal">Normal</label><br>
+        <input type="radio" id="fireTag"></input>
+        <label for="normal">Fire</label><br>
+        <input type="radio" id="waterTag"></input>
+        <label for="normal">Water</label><br>
+        <input type="radio" id="grassTag"></input>
+        <label for="normal">Grass</label><br>
+        <input type="radio" id="electircTag"></input>
+        <label for="normal">Electirc</label><br>
+        <input type="radio" id="iceTag"></input>
+        <label for="normal">Ice</label><br>
+        <input type="radio" id="fightingTag"></input>
+        <label for="normal">Fighting</label><br>
+        <input type="radio" id="poisonTag"></input>
+        <label for="normal">Poison</label><br>
+        <input type="radio" id="groundTag"></input>
+        <label for="normal">Ground</label><br>
+      </div>
     </form>
     <button type="submit">Submit</button>    
   </div>
 
 </body>
 <script>
- function changeImage() {
-  var imageDiv = document.getElementById("imageProfile");
-  //Image change
- }
+  //Choose a profile picture from a selection of presets
+  function changeImage(img) {
+    var imgDiv = document.getElementById("profilePicSelector");
+
+    imgDiv.src = '../images/basic_pfps/' + img;
+  }
+
 </script>
 <script src="profile-form.js"></script>
 

@@ -109,22 +109,27 @@ input {
 
 /* Profile Form Styles */
 
-.profile-picture {
-  background-color: rgb(255, 255, 255);
+.selectedProfilePic {
+  position: relative;
   text-align: center;
+  display: block;
+  padding: 30px;
+  
 }
 
-.defaultImage {
-  cursor: pointer;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius:50%;
-  border-radius: 50%;
+.profilePicSelector {
+  display: block;
+  justify-content: center;  
+  height: 150px;
+  width: 150px; 
 }
+
+.profile-picture {
+  color: black;
+  text-align: center;
+  border-radius: 50px;
+}
+
 
 .imageProfile {
   display: none;
