@@ -1,78 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Login to Deckboss</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Profile Form</title>
 </head>
+
 <body>
-    <h1>Profile Information</h1>
+  <h1>Profile Information</h1>
 
-    <!-- Navigation with sessions-->
-    <ul class="nav nav-pills nav-justified">
+  <!-- Navigation with sessions-->
+  <ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+      <a class="nav-link active" href="/">Home</a>
+    </li>
+
+
+    <% if (!name) { %>
       <li class="nav-item">
-        <a class="nav-link active" href="/">Home</a>
+        <a class="nav-link" href="/login">Login</a>
       </li>
-
-  
-      <% if (!name) { %>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/signup">Signup</a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">Signup</a>
+      </li>
       <% } else { %>
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
         </li>
-      <% } %>
-      <li class="nav-item">
-        <a class="nav-link" href="/card-info">Card Pricing Info</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/profile-form">Profile</a>
-      </li>
-    </ul>
+        <% } %>
+          <li class="nav-item">
+            <a class="nav-link" href="/card-info">Card Pricing Info</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile-form">Profile</a>
+          </li>
+  </ul>
 
-    <div class="profile-picture">
-      <image id="defaultImage" src="../images/avatar_default.png"></image>
-      <input id="imageProfile" type="file" name="profile_photo" required="" capture>
-    </div>
+  <h2>Welcome <%= name %> a confirmation email has been sent to <%= email %>
+  </h2> <br>
+  <h2>Create your profile</h2>
 
-    <h2>Welcome <%= name %> a confirmation email has been sent to <%= email %></h2> <br>
-  
-    <!-- Ideas for profile info:
+  <div class="profile-picture">
+    <image id="defaultImage" src="../images/avatar_default.png"></image>
+    <select>
+        <option data-img_scr="../images/basic_pfps/charmander_pfp_200x200.png">Charmander</option>
+        <option>Bulbasaur</option>
+        <option>Squirtle</option>
+    </select>
+  </div>
+
+  <!-- Ideas for profile info:
     -About me(bio)
     -Comment Section
     -"Wish List" (cards wanted)
     -Interests
     -Contact info(email, buisness info, (optional))
     -A section to upload images such as fan art
+    -Ability to change password
     -->
+  <div class="profile-form-div">
+    <form>
+      <label for="nickname">Nickname</label><br>
+      <input type="text" id="nickName" name="nickName"><br>
+      <label for="contact">Contact</label><br>
+      <input type="text" id="contact" name="contact"><br>
+      <label for="aboutMe">About Me</label><br>
+      <textarea id="bioProfile" name="bioProfile"></textarea>
+
+    </form>
+    <button type="submit">Submit</button>    
+  </div>
 
 </body>
 <script>
-  //Image preview
-$("#defaultImage").onclick(function(e) {
-  $("#imageProfile").onclick();
-});
+  //Image change
   
- function preview(uploader) {
-   if(uploader.files && uploader.files[0]) {
-     $('#defaultImage').attr('src', window.URL.createObjectURL(uploader.files[0]));
-   }
- }
-  
-$('#imageProfile').onchange(function() {
-  preview(this);
-}); 
 
 </script>
 <script src="profile-form.js"></script>
+
 </html>
