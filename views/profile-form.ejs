@@ -40,10 +40,16 @@
       </li>
     </ul>
 
-    <div class="profile-picture">
-      <image id="defaultImage" src="../images/avatar_default.png"></image>
-      <input id="imageProfile" type="file" name="profile_photo" required="" capture>
+    <div id="imageDiv">
+      <img src="">
     </div>
+    <label for ="pokemonSelector">Choose your profile image</label>
+      <select name="pokemonSelector" id="pokemonSelector">
+        <option value="blastoise">Blastoise</option>
+        <option value="charmander">Charmander</option>
+        <option value="pikachu">Pikachu</option>
+        <option value="squirtle">Squirtle</option>
+      </select>
 
     <h2>Welcome <%= name %> a confirmation email has been sent to <%= email %></h2> <br>
   
@@ -58,20 +64,8 @@
 
 </body>
 <script>
-  //Image preview
-$("#defaultImage").onclick(function(e) {
-  $("#imageProfile").onclick();
-});
-  
- function preview(uploader) {
-   if(uploader.files && uploader.files[0]) {
-     $('#defaultImage').attr('src', window.URL.createObjectURL(uploader.files[0]));
-   }
- }
-  
-$('#imageProfile').onchange(function() {
-  preview(this);
-}); 
+ function changeImage() {
+    var imageDiv = document.getElementById("imageProfile")
 
 </script>
 <script src="profile-form.js"></script>
