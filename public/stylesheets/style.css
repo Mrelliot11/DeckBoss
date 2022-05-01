@@ -130,4 +130,16 @@ input {
   display: none;
 }
 
+.profile-form-div {
+  text-align: center;
+}
+
+textarea {
+  resize: none;
+  color: black;
+}
+
+option {
+  color: black;
+}
 /* End Profile Form Styles */
