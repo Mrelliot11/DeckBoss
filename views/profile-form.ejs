@@ -23,7 +23,7 @@
 
 
     <% if (!name) { %>
-      <li class="nav-item">
+      <li class="nav-item"> 
         <a class="nav-link" href="/login">Login</a>
       </li>
       <li class="nav-item">
@@ -33,30 +33,21 @@
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile-form">Profile</a>
+        </li>
         <% } %>
           <li class="nav-item">
             <a class="nav-link" href="/card-info">Card Pricing Info</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/profile-form">Profile</a>
-          </li>
+          </li>      
   </ul>
 
-  <h2>Welcome <%= name %> a confirmation email has been sent to <%= email %>
-  </h2> <br>
-  <h2>Create your profile</h2>
-
-  <div class="selectedProfilePic">
-    <image name="profilePicSelector" id="profilePicSelector" src=""></image>
-    <div class="profile-picture">
-      <select onChange="changeImage(this.options[this.selectedIndex].value)">
-          <option value="charm_pfp.png">Charmander</option>
-          <option value="bulba_pfp.png">Bulbasaur</option>
-          <option value="squirtle_pfp.png">Squirtle</option>
-          <option value="pika_pfp.png">Pikachu</option>
-      </select>
-    </div>
-  </div>
+  
+  <% if(!message) { %> 
+    <h2>Create your profile</h2>
+  <% } else { %>
+    <h2><%= message %></h2>
+  <% } %>
 
   <!-- Ideas for profile info:
     -About me(bio)
@@ -69,40 +60,52 @@
     -->
     
   <div class="profile-form-div">
-    <form>
+    <form action="/profile-form" method="post">
+      <!--Profile Pic Selection-->
+      <div class="selectedProfilePic">
+        <image name="profilePicSelector" id="profilePicSelector" src=""></image>
+        <div class="profile-picture">
+          <select name="pfpSelect" onChange="changeImage(this.options[this.selectedIndex].value)">
+              <option value="charm_pfp.png">Charmander</option>
+              <option value="bulba_pfp.png">Bulbasaur</option>
+              <option value="squirtle_pfp.png">Squirtle</option>
+              <option value="pika_pfp.png">Pikachu</option>
+          </select>
+        </div>
+      </div>
+
       <label for="nickname">Nickname</label><br>
       <input type="text" id="nickName" name="nickName"><br>
-      <label for="contact">Contact</label><br>
-      <input type="text" id="contact" name="contact"><br>
       <label for="aboutMe">About Me</label><br>
       <textarea id="bioProfile" name="bioProfile"></textarea><br>
       <label for="otherMedia">Other Social Media</label><br>
       <textarea id="otherSocialMedia" name="otherSocialMedia"></textarea><br>
-
+      
       <!--Select favoite pokemon types-->
       <label for="favPokemonTypes">Favorite Pokemon Types</label><br>
       <div class="favPokemonRadio">
-        <input type="radio" id="normalTag"></input>
+        <input type="radio" id="normalTag" name="pokemonTag" value="normal"></input>
         <label for="normal">Normal</label><br>
-        <input type="radio" id="fireTag"></input>
+        <input type="radio" id="fireTag" name="pokemonTag" value="fire"></input>
         <label for="normal">Fire</label><br>
-        <input type="radio" id="waterTag"></input>
+        <input type="radio" id="waterTag" name="pokemonTag" value="water"></input>
         <label for="normal">Water</label><br>
-        <input type="radio" id="grassTag"></input>
+        <input type="radio" id="grassTag" name="pokemonTag" value="grass"></input>
         <label for="normal">Grass</label><br>
-        <input type="radio" id="electircTag"></input>
+        <input type="radio" id="electircTag" name="pokemonTag" value="electric"></input>
         <label for="normal">Electirc</label><br>
-        <input type="radio" id="iceTag"></input>
+        <input type="radio" id="iceTag" name="pokemonTag" value="ice"></input>
         <label for="normal">Ice</label><br>
-        <input type="radio" id="fightingTag"></input>
+        <input type="radio" id="fightingTag" name="pokemonTag" value="fighting"></input>
         <label for="normal">Fighting</label><br>
-        <input type="radio" id="poisonTag"></input>
+        <input type="radio" id="poisonTag" name="pokemonTag" value="poison"></input>
         <label for="normal">Poison</label><br>
-        <input type="radio" id="groundTag"></input>
-        <label for="normal">Ground</label><br>
+        <input type="radio" id="groundTag" name="pokemonTag" value="ground"></input>
+        <label for="normal">Ground</label><br>  
       </div>
+      <button type="submit">Submit</button>  
     </form>
-    <button type="submit">Submit</button>    
+    
   </div>
 
 </body>
