@@ -2,31 +2,30 @@ var express = require('express');
 var router = express.Router();
 var pokemon = require('pokemontcgsdk');
 
-var cardName = '';
-var imgUrl = '';
-var cardPrices = {};
-var setName = {};
 
-//Finding card data from the API
-pokemon.card.find('base1-4')
-  .then(card => {
-    //console.log(card); // testing to see returned json object
-    cardName = card.name;
-    setName = card.set.name;
-    imgUrl = card.images.small;
-    cardPrices = card.cardmarket.prices;
-    console.log(cardPrices);
-  });
+let cardsToAdd = ['base1-4', 'neo1-1', 'dp6-3', 'ex1-1'];
+
+var userCollection = [];
+
+// add cards to userCollection
+function addCards(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    pokemon.card.find(arr[i])
+    .then(card => {
+      userCollection.push(card);
+    });
+  }
+}
+
+addCards(cardsToAdd);
 
 router.get('/', function (req, res, next) {
   res.render('card-info', {
     title: 'DeckBoss',
     name: req.session.username,
-    card: cardName,
-    cardImg: imgUrl,
-    prices: cardPrices,
-    set: setName
+    collection: userCollection
   });
 });
+
 
 module.exports = router;
