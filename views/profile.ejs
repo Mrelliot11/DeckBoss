@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +11,30 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title>User Profile</title>
 </head>
+
 <body>
+
+  <!-- Navigation with sessions-->
+  <ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+      <a class="nav-link active" href="/">Home</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/profile-form">Update Profile</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/card-info">Card Pricing Info</a>
+    </li>
+  </ul>
+
   <div class="picForProfile">
     <img src="../images/basic_pfps/<%= profilepic %>"></img>
   </div>
@@ -27,6 +51,7 @@
     <p><%= pokemontag %></p>
   </div>
 
-  
+
 </body>
+
 </html>

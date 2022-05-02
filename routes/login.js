@@ -84,7 +84,7 @@ router.post('/', function (req, res, next) {
             //If the password is correct, set the session variables
             req.session.username = username;
             req.session.email = result.rows[0].email;
-            res.redirect('/profile-form');
+            res.redirect('/profile');
           } else {
             //If the password is incorrect, redirect to the login page with an error
             res.render('login', {
