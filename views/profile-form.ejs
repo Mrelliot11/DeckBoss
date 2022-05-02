@@ -36,9 +36,6 @@
         <li class="nav-item">
           <a class="nav-link" href="/profile">Profile</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/profile-form">Update Profile</a>
-        </li>
         <% } %>
           <li class="nav-item">
             <a class="nav-link" href="/card-info">Card Pricing Info</a>
@@ -66,10 +63,10 @@
     <form action="/profile-form" method="post">
       <!--Profile Pic Selection-->
       <div class="selectedProfilePic">
-        <image name="profilePicSelector" id="profilePicSelector" src=""></image>
+        <image name="profilePicSelector" id="profilePicSelector" src="../images/basic_pfps/charm_pfp.png"></image>
         <div class="profile-picture">
           <select name="pfpSelect" onChange="changeImage(this.options[this.selectedIndex].value)">
-              <option value="charm_pfp.png">Charmander</option>
+              <option value="charm_pfp.png" default>Charmander</option>
               <option value="bulba_pfp.png">Bulbasaur</option>
               <option value="squirtle_pfp.png">Squirtle</option>
               <option value="pika_pfp.png">Pikachu</option>
@@ -121,6 +118,4 @@
   }
 
 </script>
-<script src="profile-form.js"></script>
-
 </html>
