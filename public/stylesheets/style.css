@@ -147,3 +147,35 @@ option {
   color: black;
 }
 /* End Profile Form Styles */
+
+/* Profile Styles */
+
+.picForProfile {
+ text-align: center;
+}
+
+.nickName {
+  background-color: rgb(255, 217, 0);
+  height: 50px;
+  width: 200px;
+}
+
+.aboutMe {
+  background-color: rgb(255, 217, 0);
+  height: 50px;
+  width: 200px;
+}
+
+.otherSocialMedia {
+  background-color: rgb(255, 217, 0);
+  height: 50px;
+  width: 200px;
+}
+
+.favoriteTags {
+  background-color: rgb(255, 217, 0);
+  height: 50px;
+  width: 200px;
+}
+
+/* End Profile Styles */
