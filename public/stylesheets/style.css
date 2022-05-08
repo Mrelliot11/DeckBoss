@@ -65,10 +65,11 @@ input {
 .container {
   position: relative;
   display: flex;
-  margin-top: 40px;
+  margin-top: .5%;
   background-color: #080e32;
   padding: 50px;
   border-radius: 50px; 
+  justify-content: center;
 }
 
 .carousel-inner {
@@ -87,11 +88,13 @@ input {
 }
 
 .carousel-title {
-  position: inherit;
-  display: block;
-  margin-bottom: auto;
-
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
+  width: fit-content;
 }
+
+
 
 /* End Carousel */
 
