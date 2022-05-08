@@ -45,14 +45,20 @@
   <br>
   <h1><%= name %>'s Collection </h1>
   
-  <% collection.forEach(function(card) {%>
-    <div>
-      <h1><%= card.name %></h1>
-      <h1>$<%= card.cardmarket.prices.avg1 %></h1>
-      <img src=<%= card.images.small %>
-    </div>
-  <% }); %>
-
+  <!--Card Collection-->
+  <div class="card-collection">
+    <% collection.forEach(function(card) {%>
+      <!--Images-->
+      <div class="card-collection-img">
+        <img src=<%= card.images.small %> 
+      </div>
+      <!--Labels-->
+      <div class="card-collection-inner">
+        <h1><%= card.name %></h1>
+        <h1>$<%= card.cardmarket.prices.avg1 %></h1>
+      </div>
+    <% }); %>
+  </div>
   
 
 
