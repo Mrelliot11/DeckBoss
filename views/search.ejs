@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Search Page</title>
+</head>
+<body>
+  <!-- Navigation with sessions-->
+  <ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+      <a class="nav-link active" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/profile-form">Update Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/search">Search</a>
+    </li>
+  </ul>
+  
 
+  <!---Search Form-->
+
+  <div class="container">
+    <form action="/search" method="POST">
+
+    <!-- Search box -->
+    <h1>Search</h1>
+    <div>
+      <input type="text" name="name" placeholder="Search...">
+      <input type="submit" value="Search">
+      
+    </div>
+  </form>
+    
+    <% if (error) { %>
+      <p><%= error %></p>
+    <% } %>
+    
+  </div>
+  
+</body>
+</html>

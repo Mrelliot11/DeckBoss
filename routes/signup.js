@@ -43,6 +43,13 @@ async function insertUser(username, email, hash, salt, iterations) {
 
 }
 
+async function createCollection(username) {
+  const query = `INSERT INTO collections (username) VALUES ('${username}')`;
+
+  return await client.query(query);
+
+}
+
 //function to get user from database if it exists
 async function getUser(username) {
   const query = `SELECT * FROM users WHERE username = '${username}'`;
@@ -73,8 +80,10 @@ router.post('/', function (req, res, next) {
 
             //insert user into database
             insertUser(username, email, hash, salt, iterations);
+            createCollection(username);
             //Set session variables
             req.session.username = username;
+            req.session.admin = false;
             req.session.email = email;
             //Redirect to profile page
             res.redirect('/profile-form');

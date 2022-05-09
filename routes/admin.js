@@ -18,12 +18,10 @@ const client = new Client({
 }) //Connect to the database
 client.connect();
 
-function displayUsers() {
+function displayUserCount() {
   const query = `SELECT * FROM users;`;
 
-  client.query(query).then(function (result) {
-    return result.rows.length;
-  })
+  return client.query(query);
 }
 
 function deleteUser(userName) {
@@ -39,11 +37,17 @@ function banUser(userName) {
 }
 
 router.get('/', function (req, res, next) {
+
+  displayUserCount().then(function (result) {
+
+  req.session.usercount = result.rows.length;
+
   res.render('admin', {
     name: req.session.username,
-    userCount: displayUsers(),
+    userCount: req.session.usercount,
     message: ``
   });
+});
 });
 
 router.post('/delete', function(req, res, next){
@@ -54,7 +58,7 @@ router.post('/delete', function(req, res, next){
     deleteUser(deleteInput);
     res.render('admin', {
       name: req.session.username,
-      userCount: displayUsers(),
+      userCount: req.session.usercount,
       message: `User ${deleteInput} has been deleted`
     } 
     );
@@ -69,7 +73,7 @@ router.post('/ban', function(req, res, next) {
       banUser(banInput);
       res.render('admin', {
         name: req.session.username,
-        userCount: displayUsers(),
+        userCount: req.session.usercount,
         message: `User ${banInput} has been banned`
       })
     } else {
@@ -77,14 +81,14 @@ router.post('/ban', function(req, res, next) {
       banUser(stringInput);
       res.render('admin', {
         name: req.session.username,
-        userCount: displayUsers(),
+        userCount: req.session.usercount,
         message: `User ${stringInput} has been banned`
       } )
     }
   } else {
     res.render('admin', {
       name: req.session.username,
-      userCount: displayUsers(),
+      userCount: req.session.usercount,
       message: `Please enter a user`
     } )
   }

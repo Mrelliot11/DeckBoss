@@ -50,7 +50,7 @@ router.post('/', function (req, res, next) {
 
   updateProfile(username, nickName, bioProfile, otherSocialMedia, pokemonTag, pfpSelect);
 
-  res.render('profile-form',{name: req.session.username, message: 'Your profile has been updated'});
+  res.render('profile',{username: username, nickname: nickName, aboutme: bioProfile, othermedia: otherSocialMedia, pokemontag: pokemonTag, profilepic: pfpSelect});
 });
 
 module.exports = router;
