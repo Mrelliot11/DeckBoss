@@ -61,6 +61,8 @@ router.post('/', function (req, res, next) {
       //Check if the password is correct
       if (crypto.timingSafeEqual(bufferHash1, bufferHash2)) {
         req.session.username = username;
+        req.session.admin = true;
+        req.session.userid = -1
         res.redirect('/admin');
       } //If the password is correct, redirect to the admin page
       else {
@@ -84,6 +86,7 @@ router.post('/', function (req, res, next) {
             //If the password is correct, set the session variables
             req.session.username = username;
             req.session.email = result.rows[0].email;
+            req.session.userid = result.rows[0].id;
             res.redirect('/profile');
           } else {
             //If the password is incorrect, redirect to the login page with an error

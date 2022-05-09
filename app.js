@@ -13,6 +13,8 @@ var signupRouter = require('./routes/signup');
 var profileFormRouter = require('./routes/profile-form');
 var adminRouter = require('./routes/admin');
 var profileRouter = require('./routes/profile');
+var searchRouter = require('./routes/search');
+var resultsRouter = require('./routes/results');
 
 var app = express();
 
@@ -45,6 +47,8 @@ app.use('/signup', signupRouter);
 app.use('/profile-form', profileFormRouter);
 app.use('/admin', adminRouter);
 app.use('/profile', profileRouter);
+app.use('/search', searchRouter);
+app.use('/results', resultsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

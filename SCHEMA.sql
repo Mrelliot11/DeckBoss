@@ -7,6 +7,7 @@ CREATE TABLE users (
   other_media TEXT,
   pokemon_tag TEXT,
   profile_pic TEXT,
+  collection_id SERIAL,
   hash TEXT NOT NULL,
   salt TEXT NOT NULL,
   iterations INTEGER NOT NULL,
@@ -25,4 +26,12 @@ CREATE TABLE adminUsers (
 CREATE TABLE roles (
   roleID INTEGER PRIMARY KEY ,
   roleName TEXT NOT NULL
+);
+
+CREATE TABLE collections (
+  id SERIAL PRIMARY KEY,
+  username TEXT NOT NULL,
+  cards TEXT[],
+  collection_value DECIMAL,
+  total_cards INTEGER
 );
