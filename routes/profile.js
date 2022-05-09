@@ -35,8 +35,6 @@ router.get('/', function (req, res, next) {
       const pokemonTag = result.rows[0].pokemon_tag;
       const profilePic = result.rows[0].profile_pic;
 
-      console.log(userName, nickName, aboutMe, otherMedia, pokemonTag, profilePic);
-
       res.render('profile', {username: userName, nickname: nickName, aboutme: aboutMe, othermedia: otherMedia, pokemontag: pokemonTag, profilepic: profilePic});
     }
   });

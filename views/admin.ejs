@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="../stylesheets/style.css">
   
   <title>Admin Page</title>
 </head>
@@ -14,5 +14,40 @@
     Welcome to the admin page <%= name %>
   </h1>
   
+  <!-- Navigation with sessions-->
+  <ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+      <a class="nav-link active" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+  </ul>
+
+  <div class="user-stats">
+    <p>The user count is: <%= userCount %></p>
+    <p>The admin count is: </p>
+    <p>Current users: </p>
+  </div>
+
+  <!--Buttons-->
+  <form action="/admin/delete" method="post">
+    <div class="delete-user">
+      <button id="deleteButton" type="submit">Delete User</button>
+      <label for="deleteInput">Delete User</label>
+      <input type="text" placeholder="Username" name="deleteInput" id="deleteInput">
+    </div>
+  </form>
+
+  <form action="/admin/ban" method="post">
+    <div class="ban-user">
+      <button id="banButton" type="submit">Ban User</button>
+      <label for="banInput">Ban User</label>
+      <input type="text" placeholder="Username" name="banInput" id="banInput">
+    </div>
+  </form>
+
+  <h1> <%= message %> </h1>
+  
 </body>
-</html>
+</html> 
