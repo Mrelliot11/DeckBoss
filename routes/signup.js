@@ -93,7 +93,6 @@ router.post('/', function (req, res, next) {
             });
           }
         } else { //if username already exists
-          console.log("Found user: ", result.rows[0]);
           res.render('signup', {
             error: 'Username already exists'
           });
