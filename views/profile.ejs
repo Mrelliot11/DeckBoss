@@ -50,7 +50,16 @@
     <p>Favorite Pokemon Tag: <%= pokemontag %></p>
   </div>
 
+  <!-- Display User Collection-->
+  <h2><%= name %>'s Collection </h2>
 
+  <% collection.forEach(function(card) {%>
+  <div>
+    <p><%= card.name %></p>
+    <p>$<%= card.cardmarket.prices.avg1 %></p>
+    <img src=<%= card.images.small %>
+  </div>
+  <% }); %>
 </body>
 
 </html>
