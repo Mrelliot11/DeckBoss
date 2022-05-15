@@ -49,7 +49,6 @@ input {
 }
 
 .banner {
-  background: lavender;
   position: absolute;
   width: 95%;
   height: 10px;
@@ -187,7 +186,7 @@ option {
 
 .profile-body {
   background-color: #080e32;
-  height: 570px;
+  height: fit-content;
   width: 300px;
   margin: auto;
   margin-top: 20px;
@@ -204,7 +203,7 @@ option {
 
 .nickName {
   background-color: #1d1d1d;
-  height: 50px;
+  height: fit-content;
   width: 50%;
   margin: auto;
   margin-top: 20px;
@@ -216,7 +215,7 @@ option {
 
 .aboutMe {
   background-color: #1d1d1d;
-  height: 50px;
+  height: fit-content;
   width: 50%;
   margin: auto;
   margin-top: 20px;
@@ -227,7 +226,7 @@ option {
 
 .otherSocialMedia {
   background-color: #1d1d1d;
-  height: 50px;
+  height: fit-content;
   width: 50%;
   margin: auto;
   margin-top: 20px;
@@ -238,7 +237,7 @@ option {
 
 .favoriteTags {
   background-color: #1d1d1d;
-  height: 70px;
+  height: fit-content;
   width: 50%;
   margin: auto;
   margin-top: 20px;
@@ -280,3 +279,45 @@ option {
 }
 
 /* Card Collection Styles End */ 
+
+/* Admin Styles */
+
+.user-stats h2 {
+  margin-top: 40px;
+  align-items: left;
+  text-align: left;
+  width: fit-content;
+  height: fit-content;
+}
+
+.delete-user {
+  background: #1d1d1d;
+  display: grid;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.delete-user input {
+  text-align: center;
+}
+
+.delete-user label {
+  text-align: center;
+}
+
+.ban-user {
+  background: #1d1d1d;
+  display: grid;
+  width: 300px;
+}
+
+.ban-user input {
+  text-align: center;
+}
+
+.ban-user label {
+  text-align: center;
+}
+
+
+/* End Admin Styles */
