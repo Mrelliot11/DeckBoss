@@ -48,6 +48,20 @@
     </div>
   </div>
 
-</body>
+  <!--Card Collection-->
+  <h1>
+    <%= nickname %>'s Pokemon Collection
+  </h1>
+  <div class="card-collection">
+    <div id="card">
+      <% for (var i = 0; i < card_id.length; i++) { %>
+        <p><%= card_id[i] %></p>
+        <p><%= urls[i] %></p>
+        <p><%= card_name[i] %></p>
+        <img src="<%= card_image[i] %>"></img>
 
+      <% } %>
+    </div>
+  </div>
+</body>
 </html>

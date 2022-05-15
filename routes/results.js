@@ -32,8 +32,12 @@ router.get('/', function (req, res, next) {
 
 router.post('/addToCollection', function (req, res, next) {
   var id = req.body.id;
+  var name = req.body.name;
+  var image = req.body.image;
+  var url = req.body.url;
 
-  var query = `UPDATE collections SET cards = array_append(cards, '${id}') WHERE username = '${req.session.username}'`;
+
+  var query = `UPDATE collections SET cards = array_append(cards, '${id}'), urls = array_append(urls, '${url}'), card_name = array_append(card_name, '${name}'), card_image = array_append(card_image, '${image}') WHERE username = '${req.session.username}'`;
 
   client.query(query).then(function (result) {
     res.redirect('/results');
