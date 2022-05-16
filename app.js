@@ -15,6 +15,7 @@ var adminRouter = require('./routes/admin');
 var profileRouter = require('./routes/profile');
 var searchRouter = require('./routes/search');
 var resultsRouter = require('./routes/results');
+var devsRouter = require('./routes/devs');
 
 var app = express();
 
@@ -49,6 +50,7 @@ app.use('/admin', adminRouter);
 app.use('/profile', profileRouter);
 app.use('/search', searchRouter);
 app.use('/results', resultsRouter);
+app.use('/devs', devsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
