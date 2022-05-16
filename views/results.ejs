@@ -65,7 +65,13 @@
                 <a href="<%= results.data[i].cardmarket.url%>"> Here's a cardmarket link</a>
                 <br>
                 <br> 
-                <a href="<%= results.data[i].tcgplayer.url%>"> Here's a tcgplayer link</a>
+                <% if (results.data[i].tcgplayer != null) { %>
+                  <a href="<%= results.data[i].tcgplayer.url %>"> Here's a tcgplayer link</a>
+                  <br>
+                  <br>
+                  <% } else { %>
+                    <p>No tcgplayer link available</p>
+                    <% } %>
                 <br>
                 <br>
               </div>

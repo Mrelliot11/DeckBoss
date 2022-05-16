@@ -65,7 +65,9 @@
         <p><%= card_id[i] %></p>
         <p><%= urls[i] %></p>
         <p><%= card_name[i] %></p><br><br><br>
-        
+        <button id="<%= card_id[i] %>" data-imageValue="<%= card_image[i] %>" value="<%= urls[i] %>" data-cardName="<%= card_name[i] %>">
+          Delete Card from Collection
+        </button>
 
       <% } %>
 
@@ -76,4 +78,28 @@
     </div>
   </div>
 </body>
+<script>
+  $(document).ready(function() {
+    $('button').click(function() {
+      var card_id = $(this).attr('id');
+      var card_name = $(this).attr('data-cardName');
+      var card_image = $(this).attr('data-imageValue');
+      var url = $(this).attr('value');
+      $.ajax({
+        type: "POST",
+        url: "/profile/remove",
+        data: {
+          card_id: card_id,
+          card_image: card_image,
+          card_name: card_name,
+          urls: url
+        },
+        success: function(data) {
+          console.log(data);
+          location.reload();
+        }
+      });
+    });
+  });
+</script>
 </html>

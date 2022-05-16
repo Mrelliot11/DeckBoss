@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 require('dotenv').config();
+var mysql = require('mysql');
 const {
   Client
 } = require('pg');
@@ -29,6 +30,34 @@ async function checkCollection(username){
 
   return await client.query(query);
 }
+
+function removeCard(username, cardID, cardName, cardUrl, cardImage) {
+  console.log("Removing card: " + cardID);
+  console.log(username, cardID, cardName, cardUrl, cardImage);
+  console.log(`UPDATE collections SET cards = array_remove(cards, '${cardID}') urls = array_remove(urls, '${cardUrl}') card_image = array_remove(card_image, '${cardImage}') card_name = array_remove(card_name, '${cardName}') WHERE username = '${username}'`);
+  var query = `UPDATE collections SET cards = array_remove(cards, '${cardID}'), urls = array_remove(urls, '${cardUrl}'), card_image = array_remove(card_image, '${cardImage}'), card_name = array_remove(card_name, '${cardName}') WHERE username = '${username}'`;
+
+  client.query(query).then(function () {
+    console.log("Card removed");
+  }
+  ).catch(function (err) {
+    console.log(err);
+  }
+  );
+  
+
+}
+
+router.post('/remove', function(req, res, next) {
+  var username = req.session.username;
+  var cardID = req.body.card_id;
+  var cardName = req.body.card_name;
+  var card_url = req.body.urls;
+  var card_image = req.body.card_image;
+  removeCard(username, cardID, cardName, card_url, card_image);
+  res.redirect('/profile');
+  });
+
 
 
 router.get('/', function (req, res, next) {
