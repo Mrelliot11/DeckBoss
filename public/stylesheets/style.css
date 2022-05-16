@@ -49,8 +49,9 @@ input {
 }
 
 .banner {
-  position: absolute;
-  width: 95%;
+  position: relative;
+  margin-left: auto;
+  width: 100%;
   height: 10px;
 }
 
@@ -64,7 +65,6 @@ input {
 
 .nav-item {
   background-color: #1e3e46;
-  width: 100%;
 }
 
 .nav-link {
@@ -203,8 +203,12 @@ option {
 
 .profile-body {
   background-color: #517179;
+  position: relative;
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 20px;
+  width: 900px;
 }
 .picForProfile {
   text-align: center;
@@ -267,6 +271,9 @@ option {
 .results-txt {
   background: #517179;
   text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  position: relative;
 }
 
 .results-txt h1 {
@@ -369,5 +376,32 @@ option {
   text-align: center;
 }
 
-
 /* End Admin Styles */
+
+/* Dev/FAQ Styles */
+
+.faq {
+  background: #1e3e46;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.faq h3 {
+  margin-left: 10px;
+}
+
+.faq img {
+  border: 5px solid #ffffff;
+  margin-left: 37px;
+  height: 100px;
+  width: 100px;
+}
+
+.faq p {
+  text-align: left;
+  padding: 10px;
+  margin-left: 25px;
+  width: 500px;
+}
+
+/* End Dev/FAQ Styles */

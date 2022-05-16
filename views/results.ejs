@@ -48,7 +48,11 @@
         <% for (var i = 0; i < results.data.length; i++) { %>
           <li>
             <h1><%= results.data[i].name %> <h2>ID: '<%= results.data[i].id %>'</h2></h1>
-            <p>Description: <%= results.data[i].flavorText %></p>
+            <% if (results.data[i].flavorText != null) { %> 
+              <p>Description: <%= results.data[i].flavorText %></p>
+              <% } else { %> 
+                <p>Description: None Provided</p>
+                <% } %>
             <p>The card trending price is: $<%= results.data[i].cardmarket.prices.trendPrice %></p>
             <div>
               <img src="<%= results.data[i].images.small %>">
