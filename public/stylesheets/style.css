@@ -266,6 +266,41 @@ option {
 
 /* End Profile Styles */
 
+/* Search Results Styles */
+
+.results-txt {
+  background: #517179;
+  text-align: center;
+}
+
+.results-txt h2 {
+  background: #1e3e46;
+  padding: 10px;
+  margin-bottom: 0px;
+}
+
+.results-txt p {
+  background: #1e3e46;
+  margin-bottom: 0px;
+}
+
+.results-txt img {
+  border: 10px solid #1e3e46;
+  margin-top: 25px;
+}
+
+.results-links {
+  background: #1e3e46;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+/* Search Results Styles End */
+
 /* Card Collection Styles */ 
 
 .card-collection {
@@ -285,7 +320,6 @@ option {
 .card-collection img {
   background-color: #1e3e46;
   border: 10px solid #1e3e46;
-  
   text-align: center;
 }
 

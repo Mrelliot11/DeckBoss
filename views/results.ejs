@@ -42,23 +42,30 @@
   </ul>
 
 
-  <div>
+  <div class="search-results">
     <ul style="list-style-type: none" >
-      <% for (var i = 0; i < results.data.length; i++) { %>
-        <li>
-          <h2><%= results.data[i].id %></h2>
-          <p><%= results.data[i].name %></p>
-          <p><%= results.data[i].flavorText %></p>
-          <p><%= results.data[i].cardmarket.prices.trendPrice %></p>
-          
-          <img src="<%= results.data[i].images.small %>">
-          <br>
-          <button id="<%= results.data[i].id %>" class="btn btn-primary" onclick="addToCollection('<%= results.data[i].id %>', '<%= results.data[i].name %>', '<%= results.data[i].cardmarket.url %>', '<%= results.data[i].images.small %>')">Add to Collection</button>
-          <br>
-          <a href="<%= results.data[i].cardmarket.url%>"> Here's a cardmarket link</a> <br> 
-          <a href="<%= results.data[i].tcgplayer.url%>"> Here's a tcgplayer link</a>
-        </li>
-      <% } %>
+      <div class="results-txt">
+        <% for (var i = 0; i < results.data.length; i++) { %>
+          <li>
+            <h2><%= results.data[i].id %></h2>
+            <div class="result-p">
+              <p><%= results.data[i].name %></p>
+              <p><%= results.data[i].flavorText %></p>
+              <p><%= results.data[i].cardmarket.prices.trendPrice %></p>
+            </div>
+            <img src="<%= results.data[i].images.small %>">
+            <br>
+            <button id="<%= results.data[i].id %>" class="btn btn-primary" onclick="addToCollection('<%= results.data[i].id %>', '<%= results.data[i].name %>', '<%= results.data[i].cardmarket.url %>', '<%= results.data[i].images.small %>')">Add to Collection</button>
+            <br>
+            <div class="results-links">
+              <a href="<%= results.data[i].cardmarket.url%>"> Here's a cardmarket link</a> <br> 
+              <a href="<%= results.data[i].tcgplayer.url%>"> Here's a tcgplayer link</a>
+            </div>
+            
+          </li>
+        <% } %>
+      </div>
+      
     </ul>
   </div>
 
