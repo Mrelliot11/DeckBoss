@@ -65,11 +65,14 @@ input {
 
 .nav-item {
   background-color: #1e3e46;
+  width: auto;
+  height: auto;
 }
 
 .nav-link {
   font-weight: bold;
   color: white;
+  
 }
 
 /*Navigation Bar End */
@@ -419,3 +422,43 @@ option {
 }
 
 /* End Dev/FAQ Styles */
+
+@media screen and (max-width: 800px) {
+
+  body {
+    height: auto;
+    
+  }
+  ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+  }
+  ul > li {
+    display: inline-block;
+    background-color: #1e3e46;
+    width: fit-content;
+    height: auto;
+  }
+  .nav-item {
+    background-color: #1e3e46;
+    font-size: larger;
+    margin: 10px;
+    padding: 10px;
+    width: fit-content;
+    padding: 25px;
+    display: table;
+    border-radius: 50%;
+  }
+  .faq p {
+    text-align: center;
+    width: auto;
+  }
+  .profile-body {
+    width: auto;
+  }
+
+
+}
