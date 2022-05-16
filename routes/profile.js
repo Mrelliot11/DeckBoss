@@ -24,6 +24,13 @@ async function checkUserData(username){
   return await client.query(query);
 }
 
+async function checkCollection(username){
+  const query = `SELECT * FROM collections WHERE username = '${username}'`;
+
+  return await client.query(query);
+}
+
+
 router.get('/', function (req, res, next) {
   checkUserData(req.session.username).then(function (result){
     if (result.rows.length > 0) {
@@ -35,7 +42,50 @@ router.get('/', function (req, res, next) {
       const pokemonTag = result.rows[0].pokemon_tag;
       const profilePic = result.rows[0].profile_pic;
 
-      res.render('profile', {username: userName, nickname: nickName, aboutme: aboutMe, othermedia: otherMedia, pokemontag: pokemonTag, profilepic: profilePic});
+      //Get user collection
+      checkCollection(req.session.username).then(function (result){
+        if (result.rows.length > 0) {
+
+        req.session.card_id = result.rows[0].cards;
+        req.session.urls = result.rows[0].urls;
+        req.session.card_name = result.rows[0].card_name;
+        req.session.card_image = result.rows[0].card_image;
+
+
+        res.render('profile', {
+          title: 'DeckBoss',
+          name: req.session.username,
+          username: userName, 
+          nickname: nickName,
+          aboutme: aboutMe,
+          othermedia: otherMedia,
+          pokemontag: pokemonTag,
+          profilepic: profilePic,
+          card_id:  req.session.card_id,
+          urls: req.session.urls,
+          card_name: req.session.card_name,
+          card_image: req.session.card_image
+        });
+      } else {
+        res.render('profile', {
+          title: 'DeckBoss',
+          name: req.session.username,
+          username: userName, 
+          nickname: nickName,
+          aboutme: aboutMe,
+          othermedia: otherMedia,
+          pokemontag: pokemonTag,
+          profilepic: profilePic,
+          card_id:  [],
+          urls: [],
+          card_name: [],
+          card_image: []
+        });
+      }
+      }).catch(function (err){
+        console.log(err);
+      }
+      );
     }
   });
 });

@@ -38,6 +38,11 @@ async function updateProfile(username, nickname, aboutMe, otherMedia, pokemonTag
   return await client.query(query);
 
 }
+async function checkCollection(username){
+  const query = `SELECT * FROM collections WHERE username = '${username}'`;
+
+  return await client.query(query);
+}
 
 router.post('/', function (req, res, next) {
   //Get variables from profile form
@@ -49,8 +54,15 @@ router.post('/', function (req, res, next) {
   var pfpSelect = req.body.pfpSelect;
 
   updateProfile(username, nickName, bioProfile, otherSocialMedia, pokemonTag, pfpSelect);
+  checkCollection(req.session.username).then(function (result){
+    req.session.card_id = result.rows[0].cards;
+    req.session.urls = result.rows[0].urls;
+    req.session.card_name = result.rows[0].card_name;
+    req.session.card_image = result.rows[0].card_image;
 
-  res.render('profile',{username: username, nickname: nickName, aboutme: bioProfile, othermedia: otherSocialMedia, pokemontag: pokemonTag, profilepic: pfpSelect});
+
+    res.render('profile',{username: username, nickname: nickName, aboutme: bioProfile, othermedia: otherSocialMedia, pokemontag: pokemonTag, profilepic: pfpSelect, card_id: req.session.card_id, urls: req.session.urls, card_name: req.session.card_name, card_image: req.session.card_image});
+  });
 });
 
 module.exports = router;

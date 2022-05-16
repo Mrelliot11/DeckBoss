@@ -32,6 +32,9 @@ CREATE TABLE collections (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL,
   cards TEXT[],
+  urls TEXT[],
+  card_name TEXT[],
+  card_image TEXT[],
   collection_value DECIMAL,
   total_cards INTEGER
 );

@@ -31,7 +31,7 @@ router.get('/', function (req, res, next) {
 //function to insert users into database
 async function insertUser(username, email, hash, salt, iterations) {
 
-  const query = `INSERT INTO users (username, email, hash, salt, iterations) VALUES ('${username}', '${email}', '${hash}', '${salt}', ${iterations})`;
+  const query = `INSERT INTO users (username, email, hash, salt, iterations, profile_pic) VALUES ('${username}', '${email}', '${hash}', '${salt}', ${iterations}, 'default.png')`;
 
   try {
     const result = await client.query(query);
