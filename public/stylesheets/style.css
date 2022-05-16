@@ -1,7 +1,7 @@
 body {
-  background-color: #03040c;
+  background-color: #28383c;
   color: white;
-  background-image: url("../images/website_background_v2.png");
+  background-image: url("../images/v3_background.png");
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -63,7 +63,7 @@ input {
 /*Navigation Bar*/
 
 .nav-item {
-  background-color: #0a112c;
+  background-color: #1e3e46;
   width: 100%;
 }
 
@@ -81,7 +81,7 @@ input {
   position: relative;
   display: flex;
   margin-top: .5%;
-  background-color: #0a112c;
+  background-color: #1e3e46;
   padding: 50px;
   border-radius: 50px; 
   justify-content: center;
@@ -101,7 +101,7 @@ input {
 }
 
 .item {
-  background-color: #0a112c;
+  background-color: #28383c;
   background-size: contain;
 }
 
@@ -112,6 +112,14 @@ input {
   width: fit-content;
 }
 
+.carousel-title h2 {
+  background-color: #1e3e46;
+  margin-top: 10px;
+  border-radius: 10px;
+  height: 10px;
+  width: 300px;
+}
+
 /* End Carousel */
 
 /* Login Styles */
@@ -120,11 +128,16 @@ input {
   position: relative;
   top:50%;
   margin: 0 auto;
+  border-radius: 10px;
   text-align: center;
   width: 250px;
   height: 175px;
   padding: 20px;
-  background-color: rgb(2, 10, 56);
+  background-color: #1e3e46;
+}
+
+.login-form button {
+  margin-top: 10px;
 }
 
 /* End Login Styles */
@@ -135,11 +148,12 @@ input {
   position: relative;
   top:50%;
   margin: 0 auto;
+  border-radius: 10px;
   text-align: center;
   width: 250px;
   height: 250px;
   padding: 20px;
-  background-color: rgb(2, 10, 56);
+  background-color: #1e3e46;
 }
 
 /* End Signup Styles */
@@ -188,7 +202,7 @@ option {
 /* Profile Styles */
 
 .profile-body {
-  background-color: #0a112c;
+  background-color: #517179;
   height: fit-content;
   width: 300px;
   margin: auto;
@@ -202,11 +216,11 @@ option {
   margin-top: 100px;
   margin-bottom: 10px;
   width: fit-content;
-  border: 10px solid #1d1d1d;
+  border: 10px solid #1e3e46;
 }
 
 .nickName {
-  background-color: #1d1d1d;
+  background-color: #1e3e46;
   height: fit-content;
   width: 50%;
   margin: auto;
@@ -218,7 +232,7 @@ option {
 }
 
 .aboutMe {
-  background-color: #1d1d1d;
+  background-color: #1e3e46;
   height: fit-content;
   width: 50%;
   margin: auto;
@@ -229,7 +243,7 @@ option {
 }
 
 .otherSocialMedia {
-  background-color: #1d1d1d;
+  background-color: #1e3e46;
   height: fit-content;
   width: 50%;
   margin: auto;
@@ -240,7 +254,7 @@ option {
 }
 
 .favoriteTags {
-  background-color: #1d1d1d;
+  background-color: #1e3e46;
   height: fit-content;
   width: 50%;
   margin: auto;
@@ -255,7 +269,7 @@ option {
 /* Card Collection Styles */ 
 
 .card-collection {
-  background:  #0a112c;
+  background:  #517179;
   position: absolute;
   margin: auto;
   right: 0;
@@ -263,12 +277,15 @@ option {
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 10px;
+  padding-top: 10px;
   width: 410px;
   text-align: center;
 }
 
 .card-collection img {
-  background-color: #0a112c;
+  background-color: #1e3e46;
+  border: 10px solid #1e3e46;
+  
   text-align: center;
 }
 
@@ -285,7 +302,7 @@ option {
 }
 
 .delete-user {
-  background: #1d1d1d;
+  background: #1e3e46;
   display: grid;
   width: 300px;
   margin-bottom: 20px;
@@ -300,7 +317,7 @@ option {
 }
 
 .ban-user {
-  background: #1d1d1d;
+  background: #1e3e46;
   display: grid;
   width: 300px;
 }
