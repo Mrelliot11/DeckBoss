@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>FAQ's</title>
   </head>
   <body>
 
-    <div class="banner">
-      <img src="../images/banner_card.png">
-    </div>
-    <div class="logo">
-      <img src="../images/deckboss_logo.png" style="height: 250px; width: 375px;">
-    </div>
-    
-    
-    <p>Welcome to <%= title %> <%= name %></p>
-    <br>
-    <br>
-
-    <!-- Navigation with sessions-->
     <ul class="nav nav-pills nav-justified">
       <li class="nav-item">
         <a class="nav-link active" href="/">Home</a>
@@ -49,6 +39,42 @@
         </li>
       <% } %>
     </ul>
+
+    <div class="faq">
+      <h3>Q: Does it cost anything to sign up?</h3>
+      <p>A: It's free to sign up and create your own card collection.</p>
+      <br>
+      <h3>Q: What do I need in order to create an account?</h3>
+      <p>A: All you need to create an account is an email address.</p>
+      <br>
+      <h3>Q: Where does the price Information come from?</h3>
+      <p>A: The price information comes from cardmarket and tcgplayer.</p>
+      <br>
+      <h3>Q: How many times can I change my profile information?</h3>
+      <p>A: You can update your profile as many times as you want.</p>
+      <br>
+      <h3>Q: Can I upload my own profile picture?</h3>
+      <p>A: No, at this time it is not possible to upload custom photos.</p>
+      <br>
+      <h3>Q: Can I delete my account?</h3>
+      <p>A: At this time only an admin can delete accounts.</p>
+      <br>
+      <h3>Q: My account has been banned, what do I do?</h3>
+      <p>A: Contact an admin deckboss06@gmail.com</p>
+      <br>
+      <h3>Who created the site?</h3>
+      <br>
+      <div class="the-devs">
+        <img src="../images/elliot_pic.JPG">
+        <p>Elliot: Hi there! My name is Elliot Dubrow and I live here in Eau Claire, I'm originally a Portland OR native and I've been living in Wisconsin for about 5 years now. My main hobbies are gaming, computer building, and enjoying time with my wife. My favorite pokemon is Digglet.</p>
+        <br>
+        <img src="../images/mac_pic.png">
+        <p>Mackenzie: Hello! My name is Mackenzie and I'm a student at CVTC. I grew up in the "heart of the north" in northern Wisconsin and moved to Eau Claire in 2018. In addition to being recently married I enjoy playing wacky indie games, cooking, painting and 3D modeling. My favorite pokemon is Mew.</p>
+        <br>
+        <!--Insert Matt's image here w/ img src="../images/matt_pic.png"-->
+        <p>Matt ---</p>
+      </div>
+    </div>
   
 </body>
 </html>
