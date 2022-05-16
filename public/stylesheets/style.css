@@ -63,7 +63,7 @@ input {
 /*Navigation Bar*/
 
 .nav-item {
-  background-color: #080e32;
+  background-color: #0a112c;
   width: 100%;
 }
 
@@ -81,20 +81,23 @@ input {
   position: relative;
   display: flex;
   margin-top: .5%;
-  background-color: #080e32;
+  background-color: #0a112c;
   padding: 50px;
   border-radius: 50px; 
   justify-content: center;
+  width: auto;
 }
 
 .carousel-inner {
-  max-width: 100% !important;  
+  max-width: 100% !important; 
+  
 }
 
 .carousel-inner img{
   margin: auto;
   display: flex;
   vertical-align: middle;
+
 }
 
 .item {
@@ -185,12 +188,13 @@ option {
 /* Profile Styles */
 
 .profile-body {
-  background-color: #080e32;
+  background-color: #0a112c;
   height: fit-content;
   width: 300px;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 10px;
+  border-radius: 20px;
 }
 .picForProfile {
   text-align: center;
@@ -251,31 +255,21 @@ option {
 /* Card Collection Styles */ 
 
 .card-collection {
-  background: #080e32
-}
-
-.card-collection-img {
+  background:  #0a112c;
+  position: absolute;
+  margin: auto;
+  right: 0;
+  left: 0;
+  border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 10px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: auto;
-  gap: 1rem;
-  align-items: center;
+  width: 410px;
+  text-align: center;
 }
 
-.card-collection-inner {
-  margin-top: 50%;
-  margin-bottom: auto;
-  align-items: center;
-  width: auto;
-}
-
-.card-collection-prices {
-  margin-top: 50%;
-  margin-bottom: auto;
-  align-items: center;
-  width: auto;
+.card-collection img {
+  background-color: #0a112c;
+  text-align: center;
 }
 
 /* Card Collection Styles End */ 

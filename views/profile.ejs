@@ -61,10 +61,11 @@
       <% if (card_id != null) { %>
 
       <% for (var i = 0; i < card_id.length; i++) { %>
+        <img src="<%= card_image[i] %>"></img>
         <p><%= card_id[i] %></p>
         <p><%= urls[i] %></p>
-        <p><%= card_name[i] %></p>
-        <img src="<%= card_image[i] %>"></img>
+        <p><%= card_name[i] %></p><br><br><br>
+        
 
       <% } %>
 
