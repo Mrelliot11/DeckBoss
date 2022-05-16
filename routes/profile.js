@@ -44,6 +44,8 @@ router.get('/', function (req, res, next) {
 
       //Get user collection
       checkCollection(req.session.username).then(function (result){
+        if (result.rows.length > 0) {
+
         req.session.card_id = result.rows[0].cards;
         req.session.urls = result.rows[0].urls;
         req.session.card_name = result.rows[0].card_name;
@@ -64,6 +66,22 @@ router.get('/', function (req, res, next) {
           card_name: req.session.card_name,
           card_image: req.session.card_image
         });
+      } else {
+        res.render('profile', {
+          title: 'DeckBoss',
+          name: req.session.username,
+          username: userName, 
+          nickname: nickName,
+          aboutme: aboutMe,
+          othermedia: otherMedia,
+          pokemontag: pokemonTag,
+          profilepic: profilePic,
+          card_id:  [],
+          urls: [],
+          card_name: [],
+          card_image: []
+        });
+      }
       }).catch(function (err){
         console.log(err);
       }
