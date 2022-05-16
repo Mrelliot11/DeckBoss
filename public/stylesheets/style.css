@@ -203,11 +203,7 @@ option {
 
 .profile-body {
   background-color: #517179;
-  height: fit-content;
-  width: 300px;
-  margin: auto;
   margin-top: 20px;
-  margin-bottom: 10px;
   border-radius: 20px;
 }
 .picForProfile {
@@ -273,15 +269,23 @@ option {
   text-align: center;
 }
 
-.results-txt h2 {
+.results-txt h1 {
   background: #1e3e46;
   padding: 10px;
   margin-bottom: 0px;
 }
 
+.results-txt h2 {
+  background: #1e3e46;
+  padding: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
 .results-txt p {
   background: #1e3e46;
   margin-bottom: 0px;
+  padding: 10px;
 }
 
 .results-txt img {
@@ -295,6 +299,7 @@ option {
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
+  padding-bottom: 0%;
   border-radius: 10px;
   width: fit-content;
 }
