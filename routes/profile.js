@@ -33,8 +33,7 @@ async function checkCollection(username){
 
 function removeCard(username, cardID, cardName, cardUrl, cardImage) {
   console.log("Removing card: " + cardID);
-  console.log(username, cardID, cardName, cardUrl, cardImage);
-  console.log(`UPDATE collections SET cards = array_remove(cards, '${cardID}') urls = array_remove(urls, '${cardUrl}') card_image = array_remove(card_image, '${cardImage}') card_name = array_remove(card_name, '${cardName}') WHERE username = '${username}'`);
+
   var query = `UPDATE collections SET cards = array_remove(cards, '${cardID}'), urls = array_remove(urls, '${cardUrl}'), card_image = array_remove(card_image, '${cardImage}'), card_name = array_remove(card_name, '${cardName}') WHERE username = '${username}'`;
 
   client.query(query).then(function () {
