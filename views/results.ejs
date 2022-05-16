@@ -42,6 +42,7 @@
   </ul>
 
 
+<<<<<<< HEAD
   <div class="search-results">
     <ul style="list-style-type: none" >
       <div class="results-txt">
@@ -66,6 +67,31 @@
         <% } %>
       </div>
       
+=======
+  <div style="text-align: center; box-shadow: 1px 1px white; border: 1px white;">
+    <ul style="list-style-type: none" >
+      <% for (var i = 0; i < results.data.length; i++) { %>
+        <li>
+          <h1><%= results.data[i].name %> <h2>ID: '<%= results.data[i].id %>'</h2></h1>
+          <p><%= results.data[i].flavorText %></p>
+          <p>The card trending price is: $<%= results.data[i].cardmarket.prices.trendPrice %></p>
+          <div>
+            <img src="<%= results.data[i].images.small %>">
+            <br>
+            <br>
+            <button id="button <%= results.data[i].id %>" class="btn btn-primary" onclick="addToCollection('<%= results.data[i].id %>', '<%= results.data[i].name %>', '<%= results.data[i].cardmarket.url %>', '<%= results.data[i].images.small %>', '<%= results.data[i].id %>')">Add to Collection</button>
+            <br>
+            <br>
+            <a href="<%= results.data[i].cardmarket.url%>"> Here's a cardmarket link</a>
+            <br>
+            <br> 
+            <a href="<%= results.data[i].tcgplayer.url%>"> Here's a tcgplayer link</a>
+            <br>
+            <br>
+          </div>
+        </li>
+      <% } %>
+>>>>>>> f32c2d2875cbe8578cb8b415dfea83cfd25cbbe6
     </ul>
   </div>
 
@@ -75,7 +101,7 @@
   
 </body>
 <script>
-  function addToCollection(id, name, url, image) {
+  function addToCollection(id, name, url, image, buttonID) {
     $.ajax({
       url: '/results/addToCollection',
       type: 'POST',
@@ -87,6 +113,11 @@
         
       }
     });
+    // change button text to "Added"
+    var button = document.getElementById('button ' + buttonID);
+    button.innerHTML = "Added";
+    button.disabled = true;
+
   }
 </script>
 </html>

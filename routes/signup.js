@@ -5,6 +5,7 @@ var crypto = require('crypto');
 const {
   Client
 } = require('pg');
+var nodemailer = require('nodemailer');
 
 const connectionString = process.env.DATABASE_URL;
 
@@ -17,6 +18,10 @@ const client = new Client({
   }
 })
 client.connect();
+
+
+
+  
 
 
 // Render the login page
@@ -59,6 +64,7 @@ async function getUser(username) {
 
 // Post request to create a new user
 router.post('/', function (req, res, next) {
+
   //get username, email, and password from form
   const username = req.body.username;
   const password = req.body.password;
@@ -80,6 +86,30 @@ router.post('/', function (req, res, next) {
 
             //insert user into database
             insertUser(username, email, hash, salt, iterations);
+
+            const transporter = nodemailer.createTransport({
+              service: 'gmail',
+              auth: {
+              user: 'deckboss06@gmail.com',
+              pass: process.env.EMAILPASSWORD
+              }
+            });
+            
+            const mailOptions = {
+              from: 'DeckBoss',
+              to: email,
+              subject: 'Thank you for registering with DeckBoss!',
+              text: "Welcome to DeckBoss! We hope you enjoy using our service. If you have any questions, please contact us at deckboss06@gmail.com."
+              };
+
+            transporter.sendMail(mailOptions, function(error, info){
+              if (error) {
+                console.log(error);
+              } else {
+                console.log('Email sent: ' + info.response);
+              }
+            });
+
             createCollection(username);
             //Set session variables
             req.session.username = username;
