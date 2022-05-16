@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 require('dotenv').config();
 var crypto = require('crypto');
+var mysql = require('mysql');
 const {
   Client
 } = require('pg');
@@ -36,7 +37,7 @@ router.get('/', function (req, res, next) {
 //function to insert users into database
 async function insertUser(username, email, hash, salt, iterations) {
 
-  const query = `INSERT INTO users (username, email, hash, salt, iterations, profile_pic) VALUES ('${username}', '${email}', '${hash}', '${salt}', ${iterations}, 'default.png')`;
+  const query = `INSERT INTO users (username, email, hash, salt, iterations) VALUES (` + mysql.escape(username) + `, ` + mysql.escape(email) + `, ` + mysql.escape(hash) + `, ` + mysql.escape(salt) + `, ` + mysql.escape(iterations) + `);`;
 
   try {
     const result = await client.query(query);
@@ -49,7 +50,7 @@ async function insertUser(username, email, hash, salt, iterations) {
 }
 
 async function createCollection(username) {
-  const query = `INSERT INTO collections (username) VALUES ('${username}')`;
+  const query = `INSERT INTO collections (username) VALUES (` + mysql.escape(username) + `);`;
 
   return await client.query(query);
 
@@ -57,7 +58,7 @@ async function createCollection(username) {
 
 //function to get user from database if it exists
 async function getUser(username) {
-  const query = `SELECT * FROM users WHERE username = '${username}'`;
+  const query = "SELECT * FROM users WHERE username = " + mysql.escape(username);
 
   return await client.query(query);
 }

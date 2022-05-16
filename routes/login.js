@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var crypto = require('crypto');
+var mysql = require('mysql');
 require('dotenv').config();
 const {
   Client
@@ -19,12 +20,12 @@ const client = new Client({
 client.connect(); //Connect to the database
 
 async function getUser(username) {
-  const query = `SELECT * FROM users WHERE username = '${username}'`;
+  const query = "SELECT * FROM users WHERE username = " + mysql.escape(username);
 
   return await client.query(query);
 }
 async function checkIfAdmin(username) {
-  const query = `SELECT * FROM adminUsers WHERE username = '${username}'`;
+  const query = `SELECT * FROM adminUsers WHERE username = ` + mysql.escape(username);
 
   return await client.query(query);
 }
