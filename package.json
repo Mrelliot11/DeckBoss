@@ -20,7 +20,6 @@
     "nodemailer": "^6.7.5",
     "password-hash-and-salt": "^0.1.4",
     "pg": "^8.7.3",
-    "pokemontcgsdk": "^2.0.0",
-    "sequelize": "^6.19.0"
+    "pokemontcgsdk": "^2.0.0"
   }
 }

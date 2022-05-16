@@ -20,5 +20,3 @@ This project is headed by Group 5 in the IT-SD Capstone class.
 All images of Pokemon property of Nintendo/Creatures Inc./GAME FREAK inc.
 
 Pokemon Licensing information can be found at [Pokemon.com](https://www.pokemon.com/us/legal/)
-
-### To be continued....
