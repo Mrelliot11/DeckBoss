@@ -32,7 +32,11 @@
 
   <div class="profile-body">
     <div class="picForProfile">
-      <img src="../images/basic_pfps/<%= profilepic %>"></img>
+      <% if (profilepic) { %>
+        <img src="../images/basic_pfps/<%= profilepic %>" alt="profilepic" class="profilepic">
+      <% } else { %>
+        <img src="../images/basic_pfps/default.png" alt="profilepic" class="profilepic"> 
+      <% } %>
     </div>
     <div class="nickName">
       <p>Nickname: </p>
@@ -54,7 +58,11 @@
 
   <!--Card Collection-->
   <h1>
-    <%= nickname %>'s Pokemon Collection
+    <% if (nickname) { %>
+      <%= nickname %>'s Pokemon Collection
+    <% } else { %>
+      Your Pokemon Collection
+    <% } %>
   </h1>
   <% if (card_id != null) { %>
     <h2>Number of Cards: <%= card_id.length %> </h2>

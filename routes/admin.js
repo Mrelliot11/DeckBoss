@@ -23,6 +23,7 @@ function displayUserCount() {
   return client.query(query);
 }
 
+
 async function deleteUser(userName) {
   const query = `DELETE FROM users WHERE username = '${userName}';`;
 
@@ -43,7 +44,8 @@ router.get('/', function (req, res, next) {
       title: 'Admin',
       message: '',
       name: req.session.username,
-      userCount: req.session.usercount
+      userCount: req.session.usercount,
+      users: result.rows
     });
   });
 });
@@ -60,7 +62,8 @@ router.post('/delete', function (req, res, next) {
         res.render('admin', {
           name: req.session.username,
           userCount: req.session.usercount,
-          message: `User ${deleteInput} has been deleted`
+          message: `User ${deleteInput} has been deleted`,
+          users: result.rows
         })
       });
     });
@@ -68,7 +71,8 @@ router.post('/delete', function (req, res, next) {
     res.render('admin', {
       name: req.session.username,
       userCount: req.session.usercount,
-      message: `Please enter a username`
+      message: `Please enter a username`,
+      users: result.rows
     });
   }
 })
@@ -84,7 +88,8 @@ router.post('/ban', function (req, res, next) {
         res.render('admin', {
           name: req.session.username,
           userCount: req.session.usercount,
-          message: `User ${banInput} has been banned`
+          message: `User ${banInput} has been banned`,
+          users: result.rows
         })
       })
     } else {
@@ -96,7 +101,8 @@ router.post('/ban', function (req, res, next) {
         res.render('admin', {
           name: req.session.username,
           userCount: req.session.usercount,
-          message: `User ${stringInput} has been banned`
+          message: `User ${stringInput} has been banned`,
+          users: result.rows
         })
       })
     }
@@ -104,7 +110,8 @@ router.post('/ban', function (req, res, next) {
     res.render('admin', {
       name: req.session.username,
       userCount: req.session.usercount,
-      message: `Please enter a user`
+      message: `Please enter a user`,
+      users: result.rows
     })
   }
 })
