@@ -53,7 +53,7 @@
               <% } else { %> 
                 <p>Description: None Provided</p>
                 <% } %>
-            <p>The card trending price is: $<%= results.data[i].cardmarket.prices.trendPrice %></p>
+            <p>The card trending price is: $<%= results.data[i].cardmarket.prices.trendPrice.toFixed(2) %></p>
             <div>
               <img src="<%= results.data[i].images.small %>">
               <br>
