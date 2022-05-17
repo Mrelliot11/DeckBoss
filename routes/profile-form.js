@@ -34,8 +34,9 @@ router.get('/logout', function (req, res, next) {
 
 /* Update Profile*/
 async function updateProfile(username, nickname, aboutMe, otherMedia, pokemonTag, profilePic) {
-  const query = `UPDATE users SET nickname = '${nickname}', about_me = '${aboutMe}', other_media = ` + mysql.escape(otherMedia) + "," + ` pokemon_tag = '${pokemonTag}', profile_pic = '${profilePic}' WHERE username = ` + mysql.escape(username);
+  const query = `UPDATE users SET nickname = ` + mysql.escape(nickname) + ',' +  ` about_me = ` + mysql.escape(aboutMe) + ',' + ` other_media = ` + mysql.escape(otherMedia) + "," + ` pokemon_tag = '${pokemonTag}', profile_pic = '${profilePic}' WHERE username = ` + mysql.escape(username);
 
+  console.log(query);
   return await client.query(query);
 
 }
@@ -56,10 +57,14 @@ router.post('/', function (req, res, next) {
 
   updateProfile(username, nickName, bioProfile, otherSocialMedia, pokemonTag, pfpSelect);
   checkCollection(req.session.username).then(function (result){
-    req.session.card_id = result.rows[0].cards;
+    req.session.card_image = result.rows[0].card_image;
     req.session.urls = result.rows[0].urls;
     req.session.card_name = result.rows[0].card_name;
-    req.session.card_image = result.rows[0].card_image;
+    if (result.rows[0].cards != null) {
+      req.session.card_id = result.rows[0].cards;
+    } else {
+      req.session.card_id = [];
+    }
 
 
     res.render('profile',{username: username, nickname: nickName, aboutme: bioProfile, othermedia: otherSocialMedia, pokemontag: pokemonTag, profilepic: pfpSelect, card_id: req.session.card_id, urls: req.session.urls, card_name: req.session.card_name, card_image: req.session.card_image});

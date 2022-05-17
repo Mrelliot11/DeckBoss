@@ -36,6 +36,12 @@ async function banUser(userName) {
   return await client.query(query);
 }
 
+async function checkForUser(userName) {
+  const query = `SELECT * FROM users WHERE username = '${userName}';`;
+
+  return await client.query(query);
+}
+
 router.get('/', function (req, res, next) {
 
   displayUserCount().then(result => {
@@ -56,16 +62,32 @@ router.post('/delete', function (req, res, next) {
   const deleteInput = req.body.deleteInput;
 
   if (deleteInput != '') {
-    deleteUser(deleteInput).then(function () {
-      displayUserCount().then(result => {
-        req.session.usercount = result.rows.length;
-        res.render('admin', {
-          name: req.session.username,
-          userCount: req.session.usercount,
-          message: `User ${deleteInput} has been deleted`,
-          users: result.rows
-        })
-      });
+    checkForUser(deleteInput).then(result => {
+      if (result.rows.length > 0) {
+
+
+        deleteUser(deleteInput).then(function () {
+          displayUserCount().then(result => {
+            req.session.usercount = result.rows.length;
+            res.render('admin', {
+              name: req.session.username,
+              userCount: req.session.usercount,
+              message: `User ${deleteInput} has been deleted`,
+              users: result.rows
+            })
+          });
+        });
+      } else {
+        displayUserCount().then(result => {
+          req.session.usercount = result.rows.length;
+          res.render('admin', {
+            name: req.session.username,
+            userCount: req.session.usercount,
+            message: `User ${deleteInput} does not exist`,
+            users: result.rows
+          })
+        });
+      }
     });
   } else {
     res.render('admin', {
@@ -80,40 +102,37 @@ router.post('/delete', function (req, res, next) {
 router.post('/ban', function (req, res, next) {
 
   const banInput = req.body.banInput;
-  if (banInput != '') {
-    if (banInput == NaN) {
-      displayUserCount().then(result => {
-        req.session.usercount = result.rows.length;
-        banUser(banInput);
-        res.render('admin', {
-          name: req.session.username,
-          userCount: req.session.usercount,
-          message: `User ${banInput} has been banned`,
-          users: result.rows
-        })
-      })
-    } else {
-      const stringInput = banInput.toString();
-      banUser(stringInput);
-      displayUserCount().then(result => {
-        req.session.usercount = result.rows.length;
 
-        res.render('admin', {
-          name: req.session.username,
-          userCount: req.session.usercount,
-          message: `User ${stringInput} has been banned`,
-          users: result.rows
-        })
-      })
-    }
-  } else {
-    res.render('admin', {
-      name: req.session.username,
-      userCount: req.session.usercount,
-      message: `Please enter a user`,
-      users: result.rows
-    })
+  if (banInput != '') {
+    checkForUser(banInput).then(result => {
+      if (result.rows.length > 0) {
+
+        banUser(banInput).then(function () {
+          displayUserCount().then(result => {
+            req.session.usercount = result.rows.length;
+            res.render('admin', {
+              name: req.session.username,
+              userCount: req.session.usercount,
+              message: `User ${banInput} has been banned`,
+              users: result.rows
+            })
+          });
+        });
+      } else {
+        displayUserCount().then(result => {
+          req.session.usercount = result.rows.length;
+          res.render('admin', {
+            name: req.session.username,
+            userCount: req.session.usercount,
+            message: `User ${banInput} does not exist`,
+            users: result.rows
+          });
+        });
+      }
+    });
   }
-})
+
+
+});
 
 module.exports = router;
