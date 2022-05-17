@@ -35,6 +35,6 @@ CREATE TABLE collections (
   urls TEXT[],
   card_name TEXT[],
   card_image TEXT[],
-  collection_value DECIMAL,
+  collection_value DECIMAL[],
   total_cards INTEGER
 );
