@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 require('dotenv').config();
+var mysql = require('mysql');
 const {
   Client
 } = require('pg');
@@ -33,7 +34,7 @@ router.get('/logout', function (req, res, next) {
 
 /* Update Profile*/
 async function updateProfile(username, nickname, aboutMe, otherMedia, pokemonTag, profilePic) {
-  const query = `UPDATE users SET nickname = '${nickname}', about_me = '${aboutMe}', other_media = '${otherMedia}', pokemon_tag = '${pokemonTag}', profile_pic = '${profilePic}' WHERE username = '${username}'`;
+  const query = `UPDATE users SET nickname = '${nickname}', about_me = '${aboutMe}', other_media = ` + mysql.escape(otherMedia) + "," + ` pokemon_tag = '${pokemonTag}', profile_pic = '${profilePic}' WHERE username = ` + mysql.escape(username);
 
   return await client.query(query);
 
