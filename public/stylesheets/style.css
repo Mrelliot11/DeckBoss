@@ -267,7 +267,7 @@ option {
   border-radius: 10px;
 }
 .card-collection button {
-  background-color: #1e3e46;
+  background-color: whitesmoke;
   color: white;
   border: none;
   padding: 15px 32px;
@@ -408,7 +408,7 @@ option {
 }
 
 .faq img {
-  border: 5px solid #ffffff;
+  border: 5px solid #517179;
   margin-left: 37px;
   height: 100px;
   width: 100px;
