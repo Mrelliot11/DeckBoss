@@ -58,7 +58,7 @@
               <img src="<%= results.data[i].images.small %>">
               <br>
               <br>
-              <button id="button <%= results.data[i].id %>" class="btn btn-primary" onclick="addToCollection('<%= results.data[i].id %>', '<%= results.data[i].name %>', '<%= results.data[i].cardmarket.url %>', '<%= results.data[i].images.small %>', '<%= results.data[i].id %>')">Add to Collection</button>
+              <button id="button <%= results.data[i].id %>" class="btn btn-primary" onclick="addToCollection('<%= results.data[i].id %>', '<%= results.data[i].name %>', '<%= results.data[i].cardmarket.url %>', '<%= results.data[i].images.small %>', '<%= results.data[i].id %>', '<%= results.data[i].cardmarket.prices.trendPrice %>')">Add to Collection</button>
               <br>
               <br>
               <div class="results-links">
@@ -89,7 +89,7 @@
   
 </body>
 <script>
-  function addToCollection(id, name, url, image, buttonID) {
+  function addToCollection(id, name, url, image, buttonID, value) {
     $.ajax({
       url: '/results/addToCollection',
       type: 'POST',
@@ -97,8 +97,8 @@
         id: id,
         name: name,
         url: url,
-        image: image
-        
+        image: image,
+        value: value
       }
     });
     // change button text to "Added"

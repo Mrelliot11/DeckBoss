@@ -31,10 +31,10 @@ async function checkCollection(username){
   return await client.query(query);
 }
 
-function removeCard(username, cardID, cardName, cardUrl, cardImage) {
+function removeCard(username, cardID, cardName, cardUrl, cardImage, cardValue) {
   console.log("Removing card: " + cardID);
 
-  var query = `UPDATE collections SET cards = array_remove(cards, '${cardID}'), urls = array_remove(urls, '${cardUrl}'), card_image = array_remove(card_image, '${cardImage}'), card_name = array_remove(card_name, '${cardName}') WHERE username = '${username}'`;
+  var query = `UPDATE collections SET cards = array_remove(cards, '${cardID}'), urls = array_remove(urls, '${cardUrl}'), card_image = array_remove(card_image, '${cardImage}'), card_name = array_remove(card_name, '${cardName}'), collection_value = array_remove(collection_value, ${cardValue}) WHERE username = '${username}'`;
 
   client.query(query).then(function () {
     console.log("Card removed");
@@ -53,7 +53,9 @@ router.post('/remove', function(req, res, next) {
   var cardName = req.body.card_name;
   var card_url = req.body.urls;
   var card_image = req.body.card_image;
-  removeCard(username, cardID, cardName, card_url, card_image);
+  var card_value = req.body.value;
+
+  removeCard(username, cardID, cardName, card_url, card_image, card_value);
   res.redirect('/profile');
   });
 
@@ -78,7 +80,7 @@ router.get('/', function (req, res, next) {
         req.session.urls = result.rows[0].urls;
         req.session.card_name = result.rows[0].card_name;
         req.session.card_image = result.rows[0].card_image;
-
+        req.session.card_value = result.rows[0].collection_value;
 
         res.render('profile', {
           title: 'DeckBoss',
@@ -92,7 +94,8 @@ router.get('/', function (req, res, next) {
           card_id:  req.session.card_id,
           urls: req.session.urls,
           card_name: req.session.card_name,
-          card_image: req.session.card_image
+          card_image: req.session.card_image,
+          card_value: req.session.card_value
         });
       } else {
         res.render('profile', {
@@ -107,7 +110,8 @@ router.get('/', function (req, res, next) {
           card_id:  [],
           urls: [],
           card_name: [],
-          card_image: []
+          card_image: [],
+          card_value: 0
         });
       }
       }).catch(function (err){
