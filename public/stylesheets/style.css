@@ -364,8 +364,20 @@ option {
 .card-collection img {
   background-color: #1e3e46;
   border: 10px solid #1e3e46;
+  margin-bottom: 10px;
   text-align: center;
 }
+
+.card-collection p {
+  background: #1e3e46;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  width: 250px;
+}
+
 
 /* Card Collection Styles End */ 
 

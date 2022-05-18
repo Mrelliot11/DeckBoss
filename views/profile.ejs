@@ -58,7 +58,7 @@
 
   <!--Card Collection-->
   <h1>
-    <% if (nickname) { %>
+    <br><% if (nickname) { %>
       <%= nickname %>'s Pokemon Collection
     <% } else { %>
       Your Pokemon Collection
@@ -75,10 +75,10 @@
         <% var total_price = 0 %>
       <% for (var i = 0; i < card_id.length; i++) { %>
         <% total_price += card_value[i]%>
-        <p><%= card_name[i] %></p>
-        <p><%= card_id[i] %></p>
+        <p>Pokemon: <%= card_name[i] %></p>
+        <p>Card ID: <%= card_id[i] %></p>
         <p style="color: white;"><a href='<%= urls[i] %>'>Card Market Data</a></p>
-        <p>$<%= card_value[i].toFixed(2) %></p>
+        <p>Avg. Price: $<%= card_value[i].toFixed(2) %></p>
         <img src="<%= card_image[i] %>"></img>
         <button id="<%= card_id[i] %>" data-imageValue="<%= card_image[i] %>" data-cardUrl="<%= urls[i] %>" data-cardName="<%= card_name[i] %>" data-cardValue="<%= card_value[i] %>">
           Delete Card from Collection
