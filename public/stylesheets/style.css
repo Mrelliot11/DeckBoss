@@ -208,13 +208,16 @@ option {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-radius: 20px;
-  width: 900px;
+  width: auto;
+  max-width: 800px;
 }
 .picForProfile {
   text-align: center;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 10px;
   margin-bottom: 10px;
   width: fit-content;
   border: 10px solid #1e3e46;
