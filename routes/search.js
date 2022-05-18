@@ -30,12 +30,13 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
   var name = req.body.name;
-  if (name === '' || ' ') {
+  if (name === '') {
     res.render('search', {
       error: 'Please enter a name.'
     });
   } else {
-    name =  name.replace(/[^a-zA-Z0-9 ]/g, '');
+    name = name.replace([/^a-zA-Z0-9 /]/g, '');
+    console.log(name);
 
     pokemon.card.where({
         q: 'name:' + name,
