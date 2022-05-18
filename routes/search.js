@@ -30,7 +30,7 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
   var name = req.body.name;
-  name = name.replace(/[^a-zA-Z0-9 ]/g, '');
+  name = name.replace(/[^a-zA-Z0-9]/g, '');
   if (name === '' || name === ' ') {
     res.render('search', {
       error: 'Please enter a name.'
