@@ -30,7 +30,7 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
   var name = req.body.name;
-  if (name === '') {
+  if (name === '' || ' ') {
     res.render('search', {
       error: 'Please enter a name.'
     });
