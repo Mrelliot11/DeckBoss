@@ -39,7 +39,7 @@ router.post('/', function (req, res, next) {
     console.log(name);
 
     pokemon.card.where({
-        q: 'name:' + name,
+        q: 'name:' + "'" + name + "'",
         pageSize: 10,
         page: 1
       })
