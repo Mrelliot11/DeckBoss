@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 require('dotenv').config();
+var mysql = require('mysql');
 const {
   Client
 } = require('pg');
@@ -36,7 +37,9 @@ router.post('/addToCollection', function (req, res, next) {
   var url = req.body.url;
   var value = parseFloat(req.body.value);
 
-  console.log(typeof(value));
+  name = name.replace(/'/, "''");
+
+  console.log(id, name, image, url, value);
 
   var query = `UPDATE collections SET cards = array_append(cards, '${id}'), urls = array_append(urls, '${url}'), card_name = array_append(card_name, '${name}'), card_image = array_append(card_image, '${image}'), collection_value = array_append(collection_value, ${value}) WHERE username = '${req.session.username}'`;
 

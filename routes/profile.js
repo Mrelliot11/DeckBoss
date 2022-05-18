@@ -55,6 +55,8 @@ router.post('/remove', function(req, res, next) {
   var card_image = req.body.card_image;
   var card_value = req.body.value;
 
+  cardName = cardName.replace(/'/, "''");
+
   removeCard(username, cardID, cardName, card_url, card_image, card_value);
   res.redirect('/profile');
   });
