@@ -35,6 +35,7 @@ router.post('/', function (req, res, next) {
       error: 'Please enter a name.'
     });
   } else {
+    name =  name.replace(/[^a-zA-Z0-9 ]/g, '');
 
     pokemon.card.where({
         q: 'name:' + name,
