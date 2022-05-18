@@ -35,6 +35,8 @@ router.get('/logout', function (req, res, next) {
 /* Update Profile*/
 async function updateProfile(username, nickname, aboutMe, otherMedia, pokemonTag, profilePic) {
   aboutMe = aboutMe.replace(/'/, "''");
+  aboutMe = aboutMe.replace(/;/, " ");
+  
 
 
   const query = `UPDATE users SET nickname = ` + mysql.escape(nickname) + ',' +  ` about_me = '${aboutMe}', other_media = ` + mysql.escape(otherMedia) + "," + ` pokemon_tag = '${pokemonTag}', profile_pic = '${profilePic}' WHERE username = ` + mysql.escape(username);
