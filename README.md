@@ -2,7 +2,7 @@
 
 Deckboss is a sleek, easy to use website that can manage and display different collections of pokemon trading cards. Users will be able to create profiles, set up collections of cards, and access pricing data for those cards, all while enjoying a modern app flow and easy to access data. 
 
-Written in HTML5/BootStrap CSS/Node.JS using Heroku for hosting and PostgreSQL for data storage. The site is also written using express as a framework as well.
+Written in HTML5/BootStrap CSS/Node.JS and ExpressJS, using Heroku for hosting and PostgreSQL for data storage. Card API thanks to [PokemonTCG.io](https://pokemontcg.io/)
 
 # Contributing
 
