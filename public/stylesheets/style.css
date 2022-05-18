@@ -2,6 +2,7 @@ body {
   background-color: #28383c;
   color: white;
   background-image: url("../images/v3_background.png");
+  background-attachment: fixed;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
