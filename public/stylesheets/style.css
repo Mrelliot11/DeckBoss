@@ -191,6 +191,10 @@ input {
   text-align: center;
 }
 
+.profile-form-div img {
+  border: 10px solid #fff;
+}
+
 textarea {
   resize: none;
   color: black;
@@ -199,6 +203,7 @@ textarea {
 option {
   color: black;
 }
+
 /* End Profile Form Styles */
 
 /* Profile Styles */
@@ -382,6 +387,9 @@ option {
   width: 250px;
 }
 
+.card-collection button {
+  border-radius: 10px;
+}
 
 /* Card Collection Styles End */ 
 

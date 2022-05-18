@@ -49,16 +49,6 @@
   <% } else { %>
     <h2><%= message %></h2>
   <% } %>
-
-  <!-- Ideas for profile info:
-    -About me(bio)
-    -Comment Section
-    -"Wish List" (cards wanted)
-    -Interests
-    -Contact info(email, buisness info, (optional))
-    -A section to upload images such as fan art
-    -Ability to change password
-    -->
     
   <div class="profile-form-div">
     <form action="/profile-form" method="post">
@@ -76,11 +66,11 @@
       </div>
 
       <label for="nickname">Nickname</label><br>
-      <input type="text" id="nickName" name="nickName" required placeholder="Enter Nickname Here"><br>
+      <input type="text" id="nickName" name="nickName" required placeholder="Enter Nickname Here"><br><br>
       <label for="aboutMe">About Me</label><br>
-      <textarea id="bioProfile" name="bioProfile" placeholder="Enter Bio Here" required></textarea><br>
+      <textarea id="bioProfile" name="bioProfile" placeholder="Enter Bio Here" required></textarea><br><br>
       <label for="otherMedia">Other Social Media</label><br>
-      <textarea id="otherSocialMedia" name="otherSocialMedia" required placeholder="Enter Socials Here"></textarea><br>
+      <textarea id="otherSocialMedia" name="otherSocialMedia" required placeholder="Enter Socials Here"></textarea><br><br>
 
       <!--Select favoite pokemon types-->
       <label for="favPokemonTypes">Favorite Pokemon Type</label><br>
@@ -103,7 +93,7 @@
         <label for="normal">Poison</label><br>
         <input type="radio" id="groundTag" name="pokemonTag" value="ground"></input>
         <label for="normal">Ground</label><br>  
-      </div>
+      </div><br>
       <button type="submit">Submit</button>  
     </form>
     
